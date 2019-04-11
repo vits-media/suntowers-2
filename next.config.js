@@ -1,15 +1,5 @@
 module.exports = {
-  distDir: "build",
-  exportPathMap: function() {
-    return {
-      "/": { page: "/" }
-    };
-  },
-  webpack: config => {
-    // Fixes npm packages that depend on `fs` module
-    config.node = {
-      fs: "empty"
-    };
-    return config;
-  }
+  version: 2,
+  builds: [{ src: "package.json", use: "@now/next" }],
+  target: "serverless"
 };
