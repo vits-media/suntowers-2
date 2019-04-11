@@ -1,26 +1,32 @@
 # Suntowers 2
 
-This project was bootstrapped with [Create Next App](https://github.com/segmentio/create-next-app).
+## A site by VITS Media
 
-## Development
+### Local Development
 
-In the project directory, you can run:
+1. Clone this repo `git clone git@github.com:vits-media/suntowers-2.git`
+2. `cd suntowers-2 && npm install`
+3. `npm start`
 
-### `npm run dev`
+`npm run dev`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm run build`
+`npm run build`
 
 Builds the app for production to the `.next` folder.
 
-### `npm run start`
+`npm run start`
 
 Starts the application in production mode.
 The application should be compiled with \`next build\` first.
 
-## Deploy to Now
+`npn run export`
+
+Static exports into `/docs` folder. Served up on gh-pages.
+
+### Deploy
 
 1.  Install the `now` command-line tool either via the recommended [desktop tool](https://zeit.co/download) or via node with `npm install -g now`.
 
@@ -31,3 +37,7 @@ The application should be compiled with \`next build\` first.
     ```
 
 You can find more details about [`now` here](https://zeit.co/now).
+
+### Credit
+
+This project was bootstrapped with [Create Next App](https://github.com/segmentio/create-next-app).
