@@ -1,0 +1,17 @@
+{
+  "name": "vits-suntowers-2",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export -o ./docs"
+  },
+  "dependencies": {
+    "next": "^8.0.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-localization": "^1.0.13",
+    "rebass": "^3.1.0",
+    "styled-components": "^4.2.0"
+  }
+}
