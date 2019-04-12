@@ -30,6 +30,7 @@ export default {
     copper: "#8B634A",
     beige: "#DECDAA",
     gray: "#8C8C8C",
+    lightgray: "#F5F5F5",
     white: "#ffffff"
   },
   // space: [

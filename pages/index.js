@@ -301,7 +301,7 @@ const Home = () => (
       </OverlayImageContainer>
 
       <Container>
-        <DoubleContainer mt="3rem" mb={[0, "3rem"]}>
+        <Flex flexDirection={["column", "row"]} mt="3rem" mb={[0, "3rem"]}>
           <Box
             flex="1"
             ml={["auto", "3rem"]}
@@ -321,7 +321,7 @@ const Home = () => (
           <Box width={[1 / 1, 1 / 2]}>
             <Image src="static/daycare.png" />
           </Box>
-        </DoubleContainer>
+        </Flex>
       </Container>
 
       <LivingContainer>
@@ -338,21 +338,72 @@ const Home = () => (
         <Image width={1 / 1} src="static/livingroom.png" />
       </LivingContainer>
 
-      <DoubleContainer mt="3rem" mb="3rem">
-        <Box
-          flex="1"
-          ml={["auto", "3rem"]}
-          mr={["auto", "3rem"]}
-          mb={["2rem", 0]}
-          mt={["0", "3rem"]}
-          width={["80%", "auto"]}
-        >
-          <Heading1>The Best Location, And So Much More.</Heading1>
-        </Box>
-        <Box width={[1 / 1, 1 / 2]}>
-          <Image src="static/location.png" />
-        </Box>
-      </DoubleContainer>
+      <Container>
+        <Flex flexDirection={["column", "row"]} mt="3rem" mb={[0, "3rem"]}>
+          <Box
+            flex="1"
+            ml={["auto", "3rem"]}
+            mr={["auto", "3rem"]}
+            mb={["2rem", 0]}
+            mt={[0, 0, "3rem"]}
+            width={["80%", "auto"]}
+          >
+            <Heading1>The Best Location, And So Much More.</Heading1>
+          </Box>
+          <Box width={[1 / 1, 1 / 2, 1 / 2]}>
+            <Image src="static/location.png" />
+          </Box>
+        </Flex>
+      </Container>
+
+      <Box bg="lightgray" p="3rem">
+        <Text textAlign="center">
+          <Heading2 color="copper" mb="1rem">
+            Limited Opportunities
+          </Heading2>
+
+          <Text color="copper">
+            Register to receive more information and an invitation to the
+            Belford Experience Centre
+          </Text>
+        </Text>
+
+        <Flex flexDirection={["column-reverse", "row"]} mt="10rem">
+          <Box mr="1rem" width="15rem">
+            <Flex>
+              <Image width="5rem" src="static/belford.png" mr="1rem" />
+              <Image width="2rem" src="static/key.png" />
+            </Flex>
+          </Box>
+
+          <Box mr="1rem">
+            <Text fontSize="location" lineHeight="location">
+              Sales & Marketing by Key Marketing. This is not an offering for
+              sale. An offering for sale can only be made by way of disclosure
+              statement E.&O.E.
+            </Text>
+          </Box>
+
+          <Box>
+            <Flex flexDirection={["column", "row"]}>
+              <Box mr="1rem">
+                <Text fontSize="location" lineHeight="location">
+                  Belford&nbsp;Experiece&nbsp;Center
+                  <br />
+                  101- 4211 Kingsway, Burnaby, BC V5H&nbsp;3Z2
+                </Text>
+              </Box>
+              <Box>
+                <Text fontSize="location" lineHeight="location">
+                  contact
+                  <br />
+                  604&nbsp;336&nbsp;0899
+                </Text>
+              </Box>
+            </Flex>
+          </Box>
+        </Flex>
+      </Box>
     </>
   </ThemeContainer>
 );
