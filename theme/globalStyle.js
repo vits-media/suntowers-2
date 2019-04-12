@@ -26,8 +26,8 @@ export default () => (
       font-weight: 100;
     }
     @font-face {
-      font-family: "minion-pro";
-      src: url("static/fonts/fonts/MinionPro-Regular.ttf") format("truetype");
+      font-family: "minion";
+      src: url("static/fonts/MinionPro-Regular.ttf") format("truetype");
       font-weight: 300;
     }
 
