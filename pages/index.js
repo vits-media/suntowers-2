@@ -120,6 +120,16 @@ const HeroWrapper = styled.section`
     #fff 75%,
     #fff 100%
   );
+
+  @media (max-width: 700px) {
+    background: linear-gradient(
+      180deg,
+      #decdaa,
+      #decdaa 90%,
+      #fff 90%,
+      #fff 100%
+    );
+  }
   color: ${Color.WHITE};
 `;
 
@@ -138,7 +148,7 @@ const Register = styled.span`
 const Home = () => (
   <ThemeContainer>
     <>
-      <Head title="Home" />
+      <Head title="New Metrotown Condos in Burnaby, BC | Sun Towers 2 | suntowersmetrotown.com" />
       <GlobalStyle />
 
       <HeroWrapper>
@@ -284,27 +294,26 @@ const Home = () => (
       <Slide bottom>
         <OverlayImageContainer>
           <Image width={1 / 1} src="static/pool.png" />
-          <Slide bottom>
-            <ClubContainer p="2rem" width={["80%", "23rem"]}>
-              <Text textAlign="center">
-                <Box width="5rem" m="auto">
-                  <ReactSVG src="static/solaris.svg" />
-                </Box>
 
-                <Heading3 mt="2rem" mb="2rem">
-                  Membership Included
-                </Heading3>
+          <ClubContainer p="2rem" width={["80%", "23rem"]}>
+            <Text textAlign="center">
+              <Box width="5rem" m="auto">
+                <ReactSVG src="static/solaris.svg" />
+              </Box>
 
-                <Text mb="2rem" color="copper">
-                  Enjoy the exclusive, private Solaris Club - 24,000 sf of
-                  unmatched amenity over 3 floors, including swimming pool,
-                  sauna, badminton court, golf room, Sky Garden and more.
-                </Text>
+              <Heading3 mt="2rem" mb="2rem">
+                Membership Included
+              </Heading3>
 
-                <Register>{strings.register}</Register>
+              <Text mb="2rem" color="copper">
+                Enjoy the exclusive, private Solaris Club - 24,000 sf of
+                unmatched amenity over 3 floors, including swimming pool, sauna,
+                badminton court, golf room, Sky Garden and more.
               </Text>
-            </ClubContainer>
-          </Slide>
+
+              <Register>{strings.register}</Register>
+            </Text>
+          </ClubContainer>
         </OverlayImageContainer>
       </Slide>
 
