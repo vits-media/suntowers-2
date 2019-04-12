@@ -1,15 +1,15 @@
 import React from "react";
 import Link from "next/link";
-import Head from "../components/head";
 import Nav from "../components/nav";
+import Head from "../components/head";
 import styled from "styled-components";
-import SolarisLogo from "../components/solarisLogo";
-import Logo from "../components/logo";
 import ThemeContainer from "./themeContainer";
 
 import strings from "../language/strings";
 import GlobalStyle from "../theme/globalStyle";
 import Color from "../theme/color";
+import { display } from "styled-system";
+import ReactSVG from "react-svg";
 import { Flex, Box, Text, Image } from "rebass";
 
 Text.defaultProps = {
@@ -29,11 +29,12 @@ const Heading3 = props => (
     color="copper"
   />
 );
+
 const Heading2 = props => (
   <Text
     {...props}
     fontSize="heading2"
-    fontFamily="serif"
+    fontFamily="vinter"
     lineHeight="heading2"
     color="copper"
   />
@@ -50,7 +51,7 @@ const Heading1 = props => (
 );
 
 const LocationText = props => (
-  <Box {...props} fontSize="location" lineHeight="location" color="white" />
+  <Text {...props} fontSize="location" lineHeight="location" color="white" />
 );
 
 const Container = styled.section`
@@ -96,6 +97,10 @@ const ClubContainer = styled(Box)`
   background: rgba(255, 255, 255, 0.8);
 `;
 
+const DisplayContainer = styled(Box)`
+  ${display}
+`;
+
 const DoubleContainer = styled(Flex)`
   @media (max-width: 540px) {
     flex-direction: column;
@@ -107,10 +112,12 @@ const HeroWrapper = styled.section`
 `;
 
 const Register = styled.span`
+  font-size: 1rem;
   display: inline-block;
   background: ${Color.DARK_BROWN};
   color: ${Color.WHITE};
   text-align: center;
+  font-weight: 300;
   width: 12rem;
   padding: 0.5rem;
   white-space: nowrap;
@@ -123,41 +130,64 @@ const Home = () => (
       <GlobalStyle />
 
       <HeroWrapper>
-        <Flex p="2rem" alignItems="center">
-          <div style={{ fill: Color.DARK_BROWN }}>
-            <Logo />
-          </div>
-          <Flex flex="1">
-            <LocationText ml="2rem" mr="2rem">
-              Belford Experience Center
-              <br />
-              101 – 4211 Kingsway, Burnaby
-            </LocationText>
+        <Flex p={["1rem", "2rem"]} alignItems="center">
+          <Box width="10rem">
+            <ReactSVG
+              svgStyle={{ fill: "#8B634A" }}
+              src="static/logo-full.svg"
+            />
+          </Box>
 
-            <LocationText>
-              604 336 0899
-              <br />
-              Open Daily 11 am to 5 pm (except Friday)
-            </LocationText>
-          </Flex>
+          <Box flex="1">
+            <DisplayContainer display={["none", "block"]}>
+              <Flex>
+                <LocationText ml="2rem" mr="2rem">
+                  Belford Experience Center
+                  <br />
+                  101 – 4211 Kingsway, Burnaby
+                </LocationText>
+                <LocationText>
+                  604 336 0899
+                  <br />
+                  Open Daily 11 am to 5 pm (except Friday)
+                </LocationText>
+              </Flex>
+            </DisplayContainer>
+          </Box>
+
+          <DisplayContainer display={["block", "none"]}>
+            <Box mr="2rem">
+              <Text fontSize="copy" color="copper" fontWeight="300">
+                SUN TOWERS 1
+              </Text>
+            </Box>
+          </DisplayContainer>
+
           <Box>
-            <Register>{strings.register}</Register>
+            <DisplayContainer display={["block", "none"]}>
+              <Text fontSize="copy" color="white">
+                EN | CH
+              </Text>
+            </DisplayContainer>
+            <DisplayContainer display={["none", "block"]}>
+              <Register>{strings.register}</Register>
+            </DisplayContainer>
           </Box>
 
           {/* <LanguageSelect /> */}
         </Flex>
         <Box>
           <Text
-            mt="7rem"
+            mt={["5rem", "7rem"]}
             fontSize={["2.5rem", "title"]}
-            fontFamily="serif"
+            fontFamily="vinter"
             textAlign="center"
             color="white"
           >
-            SUN TOWERS{" "}
+            SUN TOWERS&nbsp;
             <Text
               as="span"
-              fontFamily="serif"
+              fontFamily="vinter"
               fontSize={["3.5rem", "titleNum"]}
               color="white"
             >
@@ -179,6 +209,12 @@ const Home = () => (
             <br />
             To Metrotown
           </Text>
+
+          <DisplayContainer display={["block", "none"]} mb="4rem">
+            <Text textAlign="center">
+              <Register>{strings.register}</Register>
+            </Text>
+          </DisplayContainer>
         </Box>
 
         <Container>
@@ -215,7 +251,7 @@ const Home = () => (
         <Image width={1 / 1} src="static/pool.png" />
         <ClubContainer p="2rem" width={["80%", "23rem"]}>
           <Text textAlign="center">
-            <SolarisLogo />
+            <ReactSVG svgStyle={{ width: "5rem" }} src="static/solaris.svg" />
 
             <Heading3 mt="2rem" mb="2rem">
               Membership Included
