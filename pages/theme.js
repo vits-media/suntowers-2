@@ -1,4 +1,4 @@
-const breakpoints = ["540px", "900px"];
+const breakpoints = ["700px", "800px", "900px"];
 breakpoints.sm = breakpoints[0];
 breakpoints.md = breakpoints[1];
 
@@ -23,7 +23,7 @@ export default {
     heading2: "2.5rem",
     heading3: "2rem",
     copy: "1.8rem",
-    location: "1rem"
+    location: "1.4rem"
   },
   // lineHeights: ["0.8rem", "1.5rem", "2.3rem", "2.5rem", "4.7rem"],
   colors: {

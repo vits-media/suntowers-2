@@ -71,6 +71,10 @@ const OverlayImageContainer = styled.section`
   overflow: hidden;
   height: 40rem;
 
+  @media (max-width: 700px) {
+    height: 42rem;
+  }
+
   img {
     position: absolute;
     object-fit: cover;
@@ -79,7 +83,11 @@ const OverlayImageContainer = styled.section`
   }
 `;
 
-const TextInsert = styled.div`
+const LivingContainer = styled.section`
+  position: relative;
+`;
+
+const LivingText = styled.div`
   background: white;
   max-width: 50%;
   /* align-self: flex-end; */
@@ -87,9 +95,16 @@ const TextInsert = styled.div`
   bottom: 0%;
   right: 0;
 
-  @media (max-width: 540px) {
+  @media (max-width: 700px) {
     position: relative;
     max-width: inherit;
+  }
+`;
+
+const PreserveSpan = styled(Box)`
+  span {
+    display: inline-block;
+    white-space: nowrap;
   }
 `;
 
@@ -102,7 +117,7 @@ const DisplayContainer = styled(Box)`
 `;
 
 const DoubleContainer = styled(Flex)`
-  @media (max-width: 540px) {
+  @media (max-width: 700px) {
     flex-direction: column;
   }
 `;
@@ -131,7 +146,7 @@ const Home = () => (
 
       <HeroWrapper>
         <Flex p={["1rem", "2rem"]} alignItems="center">
-          <Box width="10rem">
+          <Box width={["7rem", "10rem"]}>
             <ReactSVG
               svgStyle={{ fill: "#8B634A" }}
               src="static/logo-full.svg"
@@ -139,25 +154,29 @@ const Home = () => (
           </Box>
 
           <Box flex="1">
-            <DisplayContainer display={["none", "block"]}>
+            <DisplayContainer display={["none", "none", "block"]}>
               <Flex>
                 <LocationText ml="2rem" mr="2rem">
-                  Belford Experience Center
-                  <br />
-                  101 – 4211 Kingsway, Burnaby
+                  <PreserveSpan>
+                    <span>Belford Experience Center</span>
+                    <br />
+                    <span>101 – 4211 Kingsway, Burnaby</span>
+                  </PreserveSpan>
                 </LocationText>
                 <LocationText>
-                  604 336 0899
-                  <br />
-                  Open Daily 11 am to 5 pm (except Friday)
+                  <PreserveSpan>
+                    <span>604 336 0899</span>
+                    <br />
+                    <span>Open Daily 11 am to 5 pm (except Friday)</span>
+                  </PreserveSpan>
                 </LocationText>
               </Flex>
             </DisplayContainer>
           </Box>
 
-          <DisplayContainer display={["block", "none"]}>
+          <DisplayContainer display={["block", "none", "none"]}>
             <Box mr="2rem">
-              <Text fontSize="copy" color="copper" fontWeight="300">
+              <Text fontSize="location" color="copper" fontWeight="300">
                 SUN TOWERS 1
               </Text>
             </Box>
@@ -165,7 +184,7 @@ const Home = () => (
 
           <Box>
             <DisplayContainer display={["block", "none"]}>
-              <Text fontSize="copy" color="white">
+              <Text fontSize="location" color="white">
                 EN | CH
               </Text>
             </DisplayContainer>
@@ -222,7 +241,7 @@ const Home = () => (
         </Container>
       </HeroWrapper>
 
-      <Box mt="5rem" mb="5rem" width={["80%", "32rem"]} ml="auto" mr="auto">
+      <Box mt="5rem" mb="5rem" width={["90%", "32rem"]} ml="auto" mr="auto">
         <Heading2 textAlign="center" mb="2.5rem">
           Sun Towers in Metrotown's
           <br />
@@ -244,14 +263,21 @@ const Home = () => (
           The Sun as returned to Metrotown
         </Heading2>
 
-        <Text textAlign="center">Now it's your turn to take centre stage</Text>
+        <PreserveSpan>
+          <Text textAlign="center">
+            <span>Now it's your turn to&nbsp;</span>
+            <span>take centre stage</span>
+          </Text>
+        </PreserveSpan>
       </Box>
 
       <OverlayImageContainer>
         <Image width={1 / 1} src="static/pool.png" />
         <ClubContainer p="2rem" width={["80%", "23rem"]}>
           <Text textAlign="center">
-            <ReactSVG svgStyle={{ width: "5rem" }} src="static/solaris.svg" />
+            <Box width="5rem" m="auto">
+              <ReactSVG src="static/solaris.svg" />
+            </Box>
 
             <Heading3 mt="2rem" mb="2rem">
               Membership Included
@@ -269,13 +295,13 @@ const Home = () => (
       </OverlayImageContainer>
 
       <Container>
-        <DoubleContainer mt="3rem" mb="3rem">
+        <DoubleContainer mt="3rem" mb={[0, "3rem"]}>
           <Box
             flex="1"
             ml={["auto", "3rem"]}
             mr={["auto", "3rem"]}
             mb={["2rem", 0]}
-            mt={["0", "3rem"]}
+            mt={[0, 0, "3rem"]}
             width={["80%", "auto"]}
           >
             <Heading1 mb="1rem">Priority Daycare Access</Heading1>
@@ -292,19 +318,19 @@ const Home = () => (
         </DoubleContainer>
       </Container>
 
-      <OverlayImageContainer>
-        <Image width={1 / 1} src="static/livingroom.png" />
-
-        <TextInsert>
-          <Text p="2rem">
+      <LivingContainer>
+        <LivingText>
+          <Text p="2rem" fontSize="copy" lineHeight="copy">
             The distinct interiors of each home echo a modern elegance,with
             thoughtfully designed floorplans, sleek, modern kitchens, and
             sophisticated touches at every turn. Interior colours are elegant
             and understated. Beautiful woods add warmth; classic marble and
             quartz bring sophistication.
           </Text>
-        </TextInsert>
-      </OverlayImageContainer>
+        </LivingText>
+
+        <Image width={1 / 1} src="static/livingroom.png" />
+      </LivingContainer>
 
       <DoubleContainer mt="3rem" mb="3rem">
         <Box
