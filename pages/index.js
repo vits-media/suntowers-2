@@ -57,10 +57,6 @@ const LocationText = props => (
 const Container = styled.section`
   width: 95%;
   margin: auto;
-
-  img {
-    max-height: 40rem;
-  }
 `;
 
 const OverlayImageContainer = styled.section`
