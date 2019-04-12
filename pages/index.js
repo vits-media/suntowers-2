@@ -122,7 +122,13 @@ const DoubleContainer = styled(Flex)`
   }
 `;
 const HeroWrapper = styled.section`
-  background: ${Color.BEIGE};
+  background: linear-gradient(
+    180deg,
+    #decdaa,
+    #decdaa 75%,
+    #fff 75%,
+    #fff 100%
+  );
   color: ${Color.WHITE};
 `;
 

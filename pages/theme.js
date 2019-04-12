@@ -28,6 +28,7 @@ export default {
   // lineHeights: ["0.8rem", "1.5rem", "2.3rem", "2.5rem", "4.7rem"],
   colors: {
     copper: "#8B634A",
+    beige: "#DECDAA",
     gray: "#8C8C8C",
     white: "#ffffff"
   },
