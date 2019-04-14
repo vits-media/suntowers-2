@@ -1,9 +1,9 @@
 import React from "react";
-import Link from "next/link";
-import Nav from "../components/nav";
 import Head from "../components/head";
 import styled from "styled-components";
 import ThemeContainer from "./themeContainer";
+import Zoom from "react-reveal/Zoom";
+import Slide from "react-reveal/Slide";
 
 import strings from "../language/strings";
 import GlobalStyle from "../theme/globalStyle";
@@ -112,11 +112,6 @@ const DisplayContainer = styled(Box)`
   ${display}
 `;
 
-const DoubleContainer = styled(Flex)`
-  @media (max-width: 700px) {
-    flex-direction: column;
-  }
-`;
 const HeroWrapper = styled.section`
   background: linear-gradient(
     180deg,
@@ -125,6 +120,16 @@ const HeroWrapper = styled.section`
     #fff 75%,
     #fff 100%
   );
+
+  @media (max-width: 700px) {
+    background: linear-gradient(
+      180deg,
+      #decdaa,
+      #decdaa 90%,
+      #fff 90%,
+      #fff 100%
+    );
+  }
   color: ${Color.WHITE};
 `;
 
@@ -143,7 +148,7 @@ const Register = styled.span`
 const Home = () => (
   <ThemeContainer>
     <>
-      <Head title="Home" />
+      <Head title="New Metrotown Condos in Burnaby, BC | Sun Towers 2 | suntowersmetrotown.com" />
       <GlobalStyle />
 
       <HeroWrapper>
@@ -197,39 +202,44 @@ const Home = () => (
 
           {/* <LanguageSelect /> */}
         </Flex>
+
         <Box>
-          <Text
-            mt={["5rem", "7rem"]}
-            fontSize={["2.5rem", "title"]}
-            fontFamily="vinter"
-            textAlign="center"
-            color="white"
-          >
-            SUN TOWERS&nbsp;
+          <Slide bottom>
             <Text
-              as="span"
+              mt={["5rem", "7rem"]}
+              fontSize={["2.5rem", "title"]}
               fontFamily="vinter"
-              fontSize={["3.5rem", "titleNum"]}
+              textAlign="center"
               color="white"
             >
-              2
+              SUN TOWERS&nbsp;
+              <Text
+                as="span"
+                fontFamily="vinter"
+                fontSize={["3.5rem", "titleNum"]}
+                color="white"
+              >
+                2
+              </Text>
             </Text>
-          </Text>
+          </Slide>
 
-          <Text
-            mt="3rem"
-            mb="3rem"
-            fontSize={["1.2rem", "headline"]}
-            fontFamily="sans"
-            lineHeight={["2rem", "headline"]}
-            textAlign="center"
-            color="white"
-            style={{ textTransform: "uppercase" }}
-          >
-            Get Your Front Row Seat
-            <br />
-            To Metrotown
-          </Text>
+          <Slide bottom>
+            <Text
+              mt="3rem"
+              mb="3rem"
+              fontSize={["1.2rem", "headline"]}
+              fontFamily="sans"
+              lineHeight={["2rem", "headline"]}
+              textAlign="center"
+              color="white"
+              style={{ textTransform: "uppercase" }}
+            >
+              Get Your Front Row Seat
+              <br />
+              To Metrotown
+            </Text>
+          </Slide>
 
           <DisplayContainer display={["block", "none"]} mb="4rem">
             <Text textAlign="center">
@@ -239,118 +249,137 @@ const Home = () => (
         </Box>
 
         <Container>
-          <img style={{ width: "100%" }} src="static/tower-hero.png" />
+          <Slide bottom>
+            <img style={{ width: "100%" }} src="static/tower-hero.png" />
+          </Slide>
         </Container>
       </HeroWrapper>
 
-      <Box mt="5rem" mb="5rem" width={["90%", "32rem"]} ml="auto" mr="auto">
-        <Heading2 textAlign="center" mb="2.5rem">
-          Sun Towers in Metrotown's
-          <br />
-          Best Address
-        </Heading2>
+      <Slide bottom>
+        <Box mt="5rem" mb="5rem" width={["90%", "32rem"]} ml="auto" mr="auto">
+          <Heading2 textAlign="center" mb="2.5rem">
+            Sun Towers in Metrotown's
+            <br />
+            Best Address
+          </Heading2>
 
-        <Text textAlign="center">
-          Close to all the action, it is home to an international lifestyle
-          paired with the unltimate convenience of SkyTrain and destination
-          shopping. A place of unmatched amenities and prestigious personal
-          services.
-        </Text>
-      </Box>
-
-      <Image width={1 / 1} src="static/tower-sunset.png" />
-
-      <Box mt="5rem" mb="5rem" width={["80%", "32rem"]} ml="auto" mr="auto">
-        <Heading2 textAlign="center" mb="1rem">
-          The Sun as returned to Metrotown
-        </Heading2>
-
-        <PreserveSpan>
           <Text textAlign="center">
-            <span>Now it's your turn to&nbsp;</span>
-            <span>take centre stage</span>
+            Close to all the action, it is home to an international lifestyle
+            paired with the unltimate convenience of SkyTrain and destination
+            shopping. A place of unmatched amenities and prestigious personal
+            services.
           </Text>
-        </PreserveSpan>
-      </Box>
+        </Box>
+      </Slide>
 
-      <OverlayImageContainer>
-        <Image width={1 / 1} src="static/pool.png" />
-        <ClubContainer p="2rem" width={["80%", "23rem"]}>
-          <Text textAlign="center">
-            <Box width="5rem" m="auto">
-              <ReactSVG src="static/solaris.svg" />
+      <Slide bottom>
+        <Image width={1 / 1} src="static/tower-sunset.png" />
+      </Slide>
+
+      <Slide bottom>
+        <Box mt="5rem" mb="5rem" width={["80%", "32rem"]} ml="auto" mr="auto">
+          <Heading2 textAlign="center" mb="1rem">
+            The Sun as returned to Metrotown
+          </Heading2>
+
+          <PreserveSpan>
+            <Text textAlign="center">
+              <span>Now it's your turn to&nbsp;</span>
+              <span>take centre stage</span>
+            </Text>
+          </PreserveSpan>
+        </Box>
+      </Slide>
+
+      <Slide bottom>
+        <OverlayImageContainer>
+          <Image width={1 / 1} src="static/pool.png" />
+
+          <ClubContainer p="2rem" width={["80%", "23rem"]}>
+            <Text textAlign="center">
+              <Box width="5rem" m="auto">
+                <ReactSVG src="static/solaris.svg" />
+              </Box>
+
+              <Heading3 mt="2rem" mb="2rem">
+                Membership Included
+              </Heading3>
+
+              <Text mb="2rem" color="copper">
+                Enjoy the exclusive, private Solaris Club - 24,000 sf of
+                unmatched amenity over 3 floors, including swimming pool, sauna,
+                badminton court, golf room, Sky Garden and more.
+              </Text>
+
+              <Register>{strings.register}</Register>
+            </Text>
+          </ClubContainer>
+        </OverlayImageContainer>
+      </Slide>
+
+      <Slide bottom>
+        <Container>
+          <Flex flexDirection={["column", "row"]} mt="3rem" mb={[0, "3rem"]}>
+            <Box
+              flex="1"
+              ml={["auto", "3rem"]}
+              mr={["auto", "3rem"]}
+              mb={["2rem", 0]}
+              mt={[0, 0, "3rem"]}
+              width={["80%", "auto"]}
+            >
+              <Heading1 mb="1rem">Priority Daycare Access</Heading1>
+
+              <Text>
+                Enjoy the exclusive, private Solaris Club - 24,000 sf of
+                unmatched amenity over 3 floors, including swimming pool, sauna,
+                badminton court, golf room, Sky Garden and more.
+              </Text>
             </Box>
 
-            <Heading3 mt="2rem" mb="2rem">
-              Membership Included
-            </Heading3>
+            <Box width={[1 / 1, 1 / 2]}>
+              <Image src="static/daycare.png" />
+            </Box>
+          </Flex>
+        </Container>
+      </Slide>
 
-            <Text mb="2rem" color="copper">
-              Enjoy the exclusive, private Solaris Club - 24,000 sf of unmatched
-              amenity over 3 floors, including swimming pool, sauna, badminton
-              court, golf room, Sky Garden and more.
+      <Slide bottom>
+        <LivingContainer>
+          <LivingText>
+            <Text p="2rem" fontSize="copy" lineHeight="copy">
+              The distinct interiors of each home echo a modern elegance,with
+              thoughtfully designed floorplans, sleek, modern kitchens, and
+              sophisticated touches at every turn. Interior colours are elegant
+              and understated. Beautiful woods add warmth; classic marble and
+              quartz bring sophistication.
             </Text>
+          </LivingText>
 
-            <Register>{strings.register}</Register>
-          </Text>
-        </ClubContainer>
-      </OverlayImageContainer>
+          <Image width={1 / 1} src="static/livingroom.png" />
+        </LivingContainer>
+      </Slide>
 
-      <Container>
-        <Flex flexDirection={["column", "row"]} mt="3rem" mb={[0, "3rem"]}>
-          <Box
-            flex="1"
-            ml={["auto", "3rem"]}
-            mr={["auto", "3rem"]}
-            mb={["2rem", 0]}
-            mt={[0, 0, "3rem"]}
-            width={["80%", "auto"]}
-          >
-            <Heading1 mb="1rem">Priority Daycare Access</Heading1>
+      <Slide bottom>
+        <Container>
+          <Flex flexDirection={["column", "row"]} mt="3rem" mb={[0, "3rem"]}>
+            <Box
+              flex="1"
+              ml={["auto", "3rem"]}
+              mr={["auto", "3rem"]}
+              mb={["2rem", 0]}
+              mt={[0, 0, "3rem"]}
+              width={["80%", "auto"]}
+            >
+              <Heading1>The Best Location, And So Much More.</Heading1>
+            </Box>
 
-            <Text>
-              Enjoy the exclusive, private Solaris Club - 24,000 sf of unmatched
-              amenity over 3 floors, including swimming pool, sauna, badminton
-              court, golf room, Sky Garden and more.
-            </Text>
-          </Box>
-          <Box width={[1 / 1, 1 / 2]}>
-            <Image src="static/daycare.png" />
-          </Box>
-        </Flex>
-      </Container>
-
-      <LivingContainer>
-        <LivingText>
-          <Text p="2rem" fontSize="copy" lineHeight="copy">
-            The distinct interiors of each home echo a modern elegance,with
-            thoughtfully designed floorplans, sleek, modern kitchens, and
-            sophisticated touches at every turn. Interior colours are elegant
-            and understated. Beautiful woods add warmth; classic marble and
-            quartz bring sophistication.
-          </Text>
-        </LivingText>
-
-        <Image width={1 / 1} src="static/livingroom.png" />
-      </LivingContainer>
-
-      <Container>
-        <Flex flexDirection={["column", "row"]} mt="3rem" mb={[0, "3rem"]}>
-          <Box
-            flex="1"
-            ml={["auto", "3rem"]}
-            mr={["auto", "3rem"]}
-            mb={["2rem", 0]}
-            mt={[0, 0, "3rem"]}
-            width={["80%", "auto"]}
-          >
-            <Heading1>The Best Location, And So Much More.</Heading1>
-          </Box>
-          <Box width={[1 / 1, 1 / 2, 1 / 2]}>
-            <Image src="static/location.png" />
-          </Box>
-        </Flex>
-      </Container>
+            <Box width={[1 / 1, 1 / 2, 1 / 2]}>
+              <Image src="static/location.png" />
+            </Box>
+          </Flex>
+        </Container>
+      </Slide>
 
       <Box bg="lightgray" p="3rem">
         <Text textAlign="center">
