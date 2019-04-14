@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "../components/head";
+import ContactForm from "../components/contactForm";
 import styled from "styled-components";
 import ThemeContainer from "./themeContainer";
 import Zoom from "react-reveal/Zoom";
@@ -279,7 +280,7 @@ const Home = () => (
       <Slide bottom>
         <Box mt="5rem" mb="5rem" width={["80%", "32rem"]} ml="auto" mr="auto">
           <Heading2 textAlign="center" mb="1rem">
-            The Sun as returned to Metrotown
+            The Sun has returned to Metrotown
           </Heading2>
 
           <PreserveSpan>
@@ -392,6 +393,8 @@ const Home = () => (
             Belford Experience Centre
           </Text>
         </Text>
+
+        <ContactForm />
 
         <Flex flexDirection={["column-reverse", "row"]} mt="10rem">
           <Box mr="1rem" width="15rem">
