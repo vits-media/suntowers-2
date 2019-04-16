@@ -407,7 +407,7 @@ const Home = () => (
       </Slide>
 
       <Box bg="lightgray" p="3rem">
-        <Text textAlign="center">
+        <Text textAlign={["inherit", "center"]}>
           <Heading2 color="copper" mb="1rem">
             Limited Opportunities
           </Heading2>
