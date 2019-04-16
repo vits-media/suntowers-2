@@ -31,8 +31,24 @@ export const TextInput = styled.input`
   border: none;
   background-color: #fff;
   margin-bottom: 0.5rem;
-  color: ${props => props.theme.colors.gray};
+  border-radius: 0px;
+  color: ${props => props.theme.colors.darkgray};
   padding: 0.75rem;
+  appearance: textfield;
+
+  ::-webkit-input-placeholder {
+    color: ${props => props.theme.colors.darkgray};
+  }
+
+  ::-moz-placeholder {
+    color: ${props => props.theme.colors.darkgray};
+    opacity: 1;
+  }
+
+  :-ms-input-placeholder {
+    color: ${props => props.theme.colors.darkgray};
+  }
+
   @media (min-width: 700px) {
     &:nth-child(2) {
       margin-left: 0.5rem;

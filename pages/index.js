@@ -2,9 +2,7 @@ import React from "react";
 import Head from "../components/head";
 import ContactForm from "../components/contactForm";
 import styled from "styled-components";
-import { display } from "styled-system";
 import ThemeContainer from "./themeContainer";
-import Zoom from "react-reveal/Zoom";
 import Slide from "react-reveal/Slide";
 import RegisterButton from "../components/registerButton";
 import DisplayContainer from "../components/displayContainer";
@@ -13,7 +11,6 @@ import strings from "../language/strings";
 import GlobalStyle from "../theme/globalStyle";
 import ReactSVG from "react-svg";
 import { Flex, Box, Text, Image } from "rebass";
-import { relative } from "path";
 
 Text.defaultProps = {
   fontSize: "copy",
@@ -26,7 +23,7 @@ Text.defaultProps = {
 const Heading3 = props => (
   <Text
     {...props}
-    fontSize="heading3"
+    fontSize={["1.6rem", "2rem"]}
     fontFamily="serif"
     lineHeight="heading3"
     color="copper"
@@ -36,9 +33,9 @@ const Heading3 = props => (
 const Heading2 = props => (
   <Text
     {...props}
-    fontSize="heading2"
+    fontSize={["2rem", "2.7rem"]}
+    lineHeight={["2.5rem", "3.2rem"]}
     fontFamily="vinter"
-    lineHeight="heading2"
     color="copper"
   />
 );
@@ -46,9 +43,9 @@ const Heading2 = props => (
 const Heading1 = props => (
   <Text
     {...props}
-    fontSize="heading1"
+    fontSize={["3rem", "3rem", "4rem"]}
+    lineHeight={["3.5rem", "3.5rem", "4.5rem"]}
     fontFamily="serif"
-    lineHeight="heading1"
     color="copper"
   />
 );
@@ -58,7 +55,12 @@ const LocationText = props => (
 );
 
 const LanguageSelect = props => (
-  <Text {...props} fontSize="location" color="gray" mr={[0, "2rem", "2rem"]}>
+  <Text
+    {...props}
+    fontSize="location"
+    mr={[0, "2rem", "2rem"]}
+    fontWeight="bold"
+  >
     EN | CH
   </Text>
 );
@@ -69,7 +71,8 @@ const Suntowers1Link = props => (
     as="a"
     href="http://www.suntowersmetrotown.com/suntower-1/"
     fontSize="location"
-    color="copper"
+    fontWeight="bold"
+    color="white"
     style={{ textDecoration: "none" }}
   >
     SUN TOWERS 1
@@ -167,7 +170,7 @@ const Home = () => (
           <Box flex="1">
             <DisplayContainer display={["none", "none", "block"]}>
               <Flex>
-                <LocationText ml="2rem" mr="2rem">
+                <LocationText ml="4rem" mr="2rem">
                   <PreserveSpan>
                     <span>Belford Experience Center</span>
                     <br />
@@ -193,7 +196,7 @@ const Home = () => (
 
           <Box>
             <DisplayContainer display={["block", "none"]}>
-              <LanguageSelect />
+              <LanguageSelect color="white" />
             </DisplayContainer>
             <DisplayContainer display={["none", "block"]}>
               <RegisterButton />
@@ -214,7 +217,7 @@ const Home = () => (
               transformOrigin: "100% 100%"
             }}
           >
-            <LanguageSelect />
+            <LanguageSelect color="white" />
             <Suntowers1Link />
           </Flex>
         </DisplayContainer>
@@ -222,8 +225,8 @@ const Home = () => (
         <Box>
           <Slide bottom>
             <Text
-              mt={["5rem", "7rem"]}
-              fontSize={["2.5rem", "title"]}
+              mt={["3rem", "7rem"]}
+              fontSize={["3rem", "4.7rem", "5.5rem", "8.5rem"]}
               fontFamily="vinter"
               textAlign="center"
               color="white"
@@ -232,7 +235,7 @@ const Home = () => (
               <Text
                 as="span"
                 fontFamily="vinter"
-                fontSize={["3.5rem", "titleNum"]}
+                fontSize={["4.5rem", "6.7rem", "7.8rem", "12rem"]}
                 color="white"
               >
                 2
@@ -242,11 +245,11 @@ const Home = () => (
 
           <Slide bottom>
             <Text
-              mt="3rem"
-              mb="3rem"
-              fontSize={["1.2rem", "headline"]}
+              mt={["3rem", "3rem", "5rem"]}
+              mb={["3rem", "5rem"]}
+              fontSize={["1.2rem", "1.6rem", "2rem", "2.2rem"]}
+              lineHeight={["2rem", "2.5rem", "2.5rem", "3.8rem"]}
               fontFamily="sans"
-              lineHeight={["2rem", "headline"]}
               textAlign="center"
               color="white"
               style={{ textTransform: "uppercase" }}
@@ -266,13 +269,18 @@ const Home = () => (
 
         <Container>
           <Slide bottom>
-            <img style={{ width: "100%" }} src="static/tower-hero.png" />
+            <Image
+              width={["100%"]}
+              height={["20rem", "30rem", "40rem"]}
+              src="static/tower-hero.png"
+              style={{ objectFit: "cover" }}
+            />
           </Slide>
         </Container>
       </HeroWrapper>
 
       <Slide bottom>
-        <Box mt="5rem" mb="5rem" width={["90%", "32rem"]} ml="auto" mr="auto">
+        <Box mt="5rem" mb="5rem" width={["90%", "35rem"]} ml="auto" mr="auto">
           <Heading2 textAlign="center" mb="2.5rem">
             Sun Towers in Metrotown's
             <br />
@@ -293,15 +301,14 @@ const Home = () => (
       </Slide>
 
       <Slide bottom>
-        <Box mt="5rem" mb="5rem" width={["80%", "32rem"]} ml="auto" mr="auto">
+        <Box mt="5rem" mb="5rem" width={["80%", "35rem"]} ml="auto" mr="auto">
           <Heading2 textAlign="center" mb="1rem">
             The Sun has returned to Metrotown
           </Heading2>
 
           <PreserveSpan>
             <Text textAlign="center">
-              <span>Now it's your turn to&nbsp;</span>
-              <span>take centre stage</span>
+              Now it's your turn to take centre stage
             </Text>
           </PreserveSpan>
         </Box>
@@ -311,7 +318,7 @@ const Home = () => (
         <OverlayImageContainer>
           <Image width={1 / 1} src="static/pool.png" />
 
-          <ClubContainer p="2rem" width={["80%", "23rem"]}>
+          <ClubContainer p="2rem" width={["80%", "35rem"]}>
             <Text textAlign="center">
               <Box width="5rem" m="auto">
                 <ReactSVG src="static/solaris.svg" />
@@ -336,7 +343,7 @@ const Home = () => (
       </Slide>
 
       <Slide bottom>
-        <Container>
+        <Box width={["100%", "95%"]}>
           <Flex flexDirection={["column", "row"]} mt="3rem" mb={[0, "3rem"]}>
             <Box
               flex="1"
@@ -359,7 +366,7 @@ const Home = () => (
               <Image src="static/daycare.png" />
             </Box>
           </Flex>
-        </Container>
+        </Box>
       </Slide>
 
       <Slide bottom>
@@ -406,8 +413,8 @@ const Home = () => (
           </Heading2>
 
           <Text color="copper">
-            Register to receive more information and an invitation to the
-            Belford Experience Centre
+            Register to receive more information and an invitation <br />
+            to the Belford Experience Centre
           </Text>
         </Text>
 
@@ -488,7 +495,7 @@ const Home = () => (
             </Box>
             <Box flex="1">
               <Text textAlign="right" pr="1rem">
-                <LanguageSelect />
+                <LanguageSelect color="darkgray" />
               </Text>
             </Box>
             <Box width="10rem" bg="pink">
