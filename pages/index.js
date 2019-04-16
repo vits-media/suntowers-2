@@ -248,7 +248,7 @@ const Home = () => (
               mt={["3rem", "3rem", "5rem"]}
               mb={["3rem", "5rem"]}
               fontSize={["1.2rem", "1.6rem", "2rem", "2.2rem"]}
-              lineHeight={["2rem", "2.5rem", "2.5rem", "3.8rem"]}
+              lineHeight={["2rem", "2.5rem", "2.8rem", "3.8rem"]}
               fontFamily="sans"
               textAlign="center"
               color="white"
