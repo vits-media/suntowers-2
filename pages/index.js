@@ -73,6 +73,7 @@ const Suntowers1Link = props => (
     fontSize="location"
     fontWeight="bold"
     color="white"
+    target="_blank"
     style={{ textDecoration: "none" }}
   >
     SUN TOWERS 1
