@@ -476,25 +476,27 @@ const Home = () => (
           </Box>
         </Flex>
       </Box>
-      <FixedHeader>
-        <Flex alignItems="center">
-          <Box width="6rem">
-            <ReactSVG
-              svgStyle={{ fill: "#8B634A" }}
-              src="static/logo-full.svg"
-              style={{ position: "relative", top: "0.15rem", left: "0.5rem" }}
-            />
-          </Box>
-          <Box flex="1">
-            <Text textAlign="right" pr="1rem">
-              <LanguageSelect />
-            </Text>
-          </Box>
-          <Box width="10rem" bg="pink">
-            <RegisterButton />
-          </Box>
-        </Flex>
-      </FixedHeader>
+      <DisplayContainer display={["block", "none", "none"]}>
+        <FixedHeader>
+          <Flex alignItems="center">
+            <Box width="6rem">
+              <ReactSVG
+                svgStyle={{ fill: "#8B634A" }}
+                src="static/logo-full.svg"
+                style={{ position: "relative", top: "0.15rem", left: "0.5rem" }}
+              />
+            </Box>
+            <Box flex="1">
+              <Text textAlign="right" pr="1rem">
+                <LanguageSelect />
+              </Text>
+            </Box>
+            <Box width="10rem" bg="pink">
+              <RegisterButton />
+            </Box>
+          </Flex>
+        </FixedHeader>
+      </DisplayContainer>
     </>
   </ThemeContainer>
 );
