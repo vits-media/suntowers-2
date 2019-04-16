@@ -1,9 +1,5 @@
-const breakpoints = ["700px", "800px", "900px"];
-breakpoints.sm = breakpoints[0];
-breakpoints.md = breakpoints[1];
-
 export default {
-  breakpoints: breakpoints,
+  breakpoints: ["700px", "800px", "900px"],
 
   // fontSizes: ["0.8rem", "1.5rem", "1.5rem", "2.5rem", "4.7rem", "6.7rem"],
 
@@ -31,6 +27,7 @@ export default {
     beige: "#DECDAA",
     gray: "#8C8C8C",
     lightgray: "#F5F5F5",
+    darkgray: "#9B9B9B",
     white: "#ffffff"
   },
   // space: [

@@ -2,14 +2,14 @@ import React from "react";
 import Head from "../components/head";
 import ContactForm from "../components/contactForm";
 import styled from "styled-components";
+import { display } from "styled-system";
 import ThemeContainer from "./themeContainer";
 import Zoom from "react-reveal/Zoom";
 import Slide from "react-reveal/Slide";
-
+import RegisterButton from "../components/registerButton";
+import DisplayContainer from "../components/displayContainer";
 import strings from "../language/strings";
 import GlobalStyle from "../theme/globalStyle";
-import Color from "../theme/color";
-import { display } from "styled-system";
 import ReactSVG from "react-svg";
 import { Flex, Box, Text, Image } from "rebass";
 
@@ -55,6 +55,25 @@ const LocationText = props => (
   <Text {...props} fontSize="location" lineHeight="location" color="white" />
 );
 
+const LanguageSelect = props => (
+  <Text {...props} fontSize="location" color="white" mr={[0, "2rem", "2rem"]}>
+    EN | CH
+  </Text>
+);
+
+const Suntowers1Link = props => (
+  <Text
+    {...props}
+    as="a"
+    href="http://www.suntowersmetrotown.com/suntower-1/"
+    fontSize="location"
+    color="copper"
+    style={{ textDecoration: "none" }}
+  >
+    SUN TOWERS 1
+  </Text>
+);
+
 const Container = styled.section`
   width: 95%;
   margin: auto;
@@ -87,7 +106,6 @@ const LivingContainer = styled.section`
 const LivingText = styled.div`
   background: white;
   max-width: 50%;
-  /* align-self: flex-end; */
   position: absolute;
   bottom: 0%;
   right: 0;
@@ -109,10 +127,6 @@ const ClubContainer = styled(Box)`
   background: rgba(255, 255, 255, 0.8);
 `;
 
-const DisplayContainer = styled(Box)`
-  ${display}
-`;
-
 const HeroWrapper = styled.section`
   background: linear-gradient(
     180deg,
@@ -131,19 +145,7 @@ const HeroWrapper = styled.section`
       #fff 100%
     );
   }
-  color: ${Color.WHITE};
-`;
-
-const Register = styled.span`
-  font-size: 1rem;
-  display: inline-block;
-  background: ${Color.DARK_BROWN};
-  color: ${Color.WHITE};
-  text-align: center;
-  font-weight: 300;
-  width: 12rem;
-  padding: 0.5rem;
-  white-space: nowrap;
+  color: white;
 `;
 
 const Home = () => (
@@ -184,25 +186,37 @@ const Home = () => (
 
           <DisplayContainer display={["block", "none", "none"]}>
             <Box mr="2rem">
-              <Text fontSize="location" color="copper" fontWeight="300">
-                SUN TOWERS 1
-              </Text>
+              <Suntowers1Link />
             </Box>
           </DisplayContainer>
 
           <Box>
             <DisplayContainer display={["block", "none"]}>
-              <Text fontSize="location" color="white">
-                EN | CH
-              </Text>
+              <LanguageSelect />
             </DisplayContainer>
             <DisplayContainer display={["none", "block"]}>
-              <Register>{strings.register}</Register>
+              <RegisterButton />
             </DisplayContainer>
           </Box>
-
-          {/* <LanguageSelect /> */}
         </Flex>
+
+        <DisplayContainer display={["none", "block", "block"]}>
+          <Flex
+            flexDirection="row"
+            alignItems="flex-end"
+            style={{
+              position: "relative",
+              float: "right",
+              width: "15rem",
+              height: "3rem",
+              transform: "translate(-3rem, 17rem) rotate(90deg)",
+              transformOrigin: "100% 100%"
+            }}
+          >
+            <LanguageSelect />
+            <Suntowers1Link />
+          </Flex>
+        </DisplayContainer>
 
         <Box>
           <Slide bottom>
@@ -243,9 +257,9 @@ const Home = () => (
           </Slide>
 
           <DisplayContainer display={["block", "none"]} mb="4rem">
-            <Text textAlign="center">
-              <Register>{strings.register}</Register>
-            </Text>
+            <Box width="13rem" margin="auto">
+              <RegisterButton />
+            </Box>
           </DisplayContainer>
         </Box>
 
@@ -268,7 +282,7 @@ const Home = () => (
             Close to all the action, it is home to an international lifestyle
             paired with the unltimate convenience of SkyTrain and destination
             shopping. A place of unmatched amenities and prestigious personal
-            services.
+            services.cd
           </Text>
         </Box>
       </Slide>
@@ -312,7 +326,9 @@ const Home = () => (
                 badminton court, golf room, Sky Garden and more.
               </Text>
 
-              <Register>{strings.register}</Register>
+              <Box width="13rem" margin="auto">
+                <RegisterButton />
+              </Box>
             </Text>
           </ClubContainer>
         </OverlayImageContainer>
@@ -396,16 +412,20 @@ const Home = () => (
 
         <ContactForm />
 
-        <Flex flexDirection={["column-reverse", "row"]} mt="10rem">
-          <Box mr="1rem" width="15rem">
-            <Flex>
+        <Flex flexDirection={["column-reverse", "row"]} mt={["2rem", "5rem"]}>
+          <Box mr={["0", "1rem"]} mt={["2rem", "0"]} width={[1 / 1, "25rem"]}>
+            <Text textAlign="center">
               <Image width="5rem" src="static/belford.png" mr="1rem" />
               <Image width="2rem" src="static/key.png" />
-            </Flex>
+            </Text>
           </Box>
 
-          <Box mr="1rem">
-            <Text fontSize="location" lineHeight="location">
+          <Box mr={["0", "1rem"]} mt={["2rem", "0"]}>
+            <Text
+              fontSize="location"
+              lineHeight="location"
+              textAlign={["center", "left"]}
+            >
               Sales & Marketing by Key Marketing. This is not an offering for
               sale. An offering for sale can only be made by way of disclosure
               statement E.&O.E.
@@ -415,17 +435,40 @@ const Home = () => (
           <Box>
             <Flex flexDirection={["column", "row"]}>
               <Box mr="1rem">
-                <Text fontSize="location" lineHeight="location">
+                <Text
+                  fontSize="location"
+                  lineHeight="location"
+                  textAlign={["center", "left"]}
+                >
                   Belford&nbsp;Experiece&nbsp;Center
-                  <br />
+                </Text>
+                <Text
+                  fontSize="location"
+                  lineHeight="location"
+                  textAlign={["center", "left"]}
+                >
                   101- 4211 Kingsway, Burnaby, BC V5H&nbsp;3Z2
                 </Text>
               </Box>
               <Box>
-                <Text fontSize="location" lineHeight="location">
-                  contact
-                  <br />
-                  604&nbsp;336&nbsp;0899
+                <Text
+                  fontSize="location"
+                  lineHeight="location"
+                  textAlign={["center", "left"]}
+                >
+                  <DisplayContainer display={["none", "block", "block"]}>
+                    contact
+                    <br />
+                    <span style={{ whiteSpace: "nowrap" }}>
+                      {strings.phone}
+                    </span>
+                  </DisplayContainer>
+
+                  <DisplayContainer display={["block", "none", "none"]}>
+                    <span style={{ whiteSpace: "nowrap" }}>
+                      {strings.phone}
+                    </span>
+                  </DisplayContainer>
                 </Text>
               </Box>
             </Flex>
