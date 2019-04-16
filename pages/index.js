@@ -8,10 +8,12 @@ import Zoom from "react-reveal/Zoom";
 import Slide from "react-reveal/Slide";
 import RegisterButton from "../components/registerButton";
 import DisplayContainer from "../components/displayContainer";
+import FixedHeader from "../components/fixedHeader";
 import strings from "../language/strings";
 import GlobalStyle from "../theme/globalStyle";
 import ReactSVG from "react-svg";
 import { Flex, Box, Text, Image } from "rebass";
+import { relative } from "path";
 
 Text.defaultProps = {
   fontSize: "copy",
@@ -56,7 +58,7 @@ const LocationText = props => (
 );
 
 const LanguageSelect = props => (
-  <Text {...props} fontSize="location" color="white" mr={[0, "2rem", "2rem"]}>
+  <Text {...props} fontSize="location" color="gray" mr={[0, "2rem", "2rem"]}>
     EN | CH
   </Text>
 );
@@ -153,7 +155,6 @@ const Home = () => (
     <>
       <Head title="New Metrotown Condos in Burnaby, BC | Sun Towers 2 | suntowersmetrotown.com" />
       <GlobalStyle />
-
       <HeroWrapper>
         <Flex p={["1rem", "2rem"]} alignItems="center">
           <Box width={["7rem", "10rem"]}>
@@ -326,7 +327,7 @@ const Home = () => (
                 badminton court, golf room, Sky Garden and more.
               </Text>
 
-              <Box width="13rem" margin="auto">
+              <Box width="12rem" margin="auto">
                 <RegisterButton />
               </Box>
             </Text>
@@ -475,6 +476,25 @@ const Home = () => (
           </Box>
         </Flex>
       </Box>
+      <FixedHeader>
+        <Flex alignItems="center">
+          <Box width="6rem">
+            <ReactSVG
+              svgStyle={{ fill: "#8B634A" }}
+              src="static/logo-full.svg"
+              style={{ position: "relative", top: "0.15rem", left: "0.5rem" }}
+            />
+          </Box>
+          <Box flex="1">
+            <Text textAlign="right" pr="1rem">
+              <LanguageSelect />
+            </Text>
+          </Box>
+          <Box width="10rem" bg="pink">
+            <RegisterButton />
+          </Box>
+        </Flex>
+      </FixedHeader>
     </>
   </ThemeContainer>
 );

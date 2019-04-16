@@ -10,7 +10,7 @@ export const Register = styled.span`
   text-align: center;
   font-weight: 300;
   width: 100%;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 2rem;
   height: 3rem;
   margin: auto;
   line-height: 2.1rem;
