@@ -1,14 +1,14 @@
 import React from "react";
 import Head from "../components/head";
+import ContactForm from "../components/contactForm";
 import styled from "styled-components";
 import ThemeContainer from "./themeContainer";
-import Zoom from "react-reveal/Zoom";
 import Slide from "react-reveal/Slide";
-
+import RegisterButton from "../components/registerButton";
+import DisplayContainer from "../components/displayContainer";
+import FixedHeader from "../components/fixedHeader";
 import strings from "../language/strings";
 import GlobalStyle from "../theme/globalStyle";
-import Color from "../theme/color";
-import { display } from "styled-system";
 import ReactSVG from "react-svg";
 import { Flex, Box, Text, Image } from "rebass";
 
@@ -23,7 +23,7 @@ Text.defaultProps = {
 const Heading3 = props => (
   <Text
     {...props}
-    fontSize="heading3"
+    fontSize={["1.6rem", "2rem"]}
     fontFamily="serif"
     lineHeight="heading3"
     color="copper"
@@ -33,9 +33,9 @@ const Heading3 = props => (
 const Heading2 = props => (
   <Text
     {...props}
-    fontSize="heading2"
+    fontSize={["2rem", "2.7rem"]}
+    lineHeight={["2.5rem", "3.2rem"]}
     fontFamily="vinter"
-    lineHeight="heading2"
     color="copper"
   />
 );
@@ -43,15 +43,40 @@ const Heading2 = props => (
 const Heading1 = props => (
   <Text
     {...props}
-    fontSize="heading1"
+    fontSize={["3rem", "3rem", "4rem"]}
+    lineHeight={["3.5rem", "3.5rem", "4.5rem"]}
     fontFamily="serif"
-    lineHeight="heading1"
     color="copper"
   />
 );
 
 const LocationText = props => (
   <Text {...props} fontSize="location" lineHeight="location" color="white" />
+);
+
+const LanguageSelect = props => (
+  <Text
+    {...props}
+    fontSize="location"
+    mr={[0, "2rem", "2rem"]}
+    fontWeight="bold"
+  >
+    EN | CH
+  </Text>
+);
+
+const Suntowers1Link = props => (
+  <Text
+    {...props}
+    as="a"
+    href="http://www.suntowersmetrotown.com/suntower-1/"
+    fontSize="location"
+    fontWeight="bold"
+    color="white"
+    style={{ textDecoration: "none" }}
+  >
+    SUN TOWERS 1
+  </Text>
 );
 
 const Container = styled.section`
@@ -86,7 +111,6 @@ const LivingContainer = styled.section`
 const LivingText = styled.div`
   background: white;
   max-width: 50%;
-  /* align-self: flex-end; */
   position: absolute;
   bottom: 0%;
   right: 0;
@@ -108,10 +132,6 @@ const ClubContainer = styled(Box)`
   background: rgba(255, 255, 255, 0.8);
 `;
 
-const DisplayContainer = styled(Box)`
-  ${display}
-`;
-
 const HeroWrapper = styled.section`
   background: linear-gradient(
     180deg,
@@ -130,19 +150,7 @@ const HeroWrapper = styled.section`
       #fff 100%
     );
   }
-  color: ${Color.WHITE};
-`;
-
-const Register = styled.span`
-  font-size: 1rem;
-  display: inline-block;
-  background: ${Color.DARK_BROWN};
-  color: ${Color.WHITE};
-  text-align: center;
-  font-weight: 300;
-  width: 12rem;
-  padding: 0.5rem;
-  white-space: nowrap;
+  color: white;
 `;
 
 const Home = () => (
@@ -150,7 +158,6 @@ const Home = () => (
     <>
       <Head title="New Metrotown Condos in Burnaby, BC | Sun Towers 2 | suntowersmetrotown.com" />
       <GlobalStyle />
-
       <HeroWrapper>
         <Flex p={["1rem", "2rem"]} alignItems="center">
           <Box width={["7rem", "10rem"]}>
@@ -163,7 +170,7 @@ const Home = () => (
           <Box flex="1">
             <DisplayContainer display={["none", "none", "block"]}>
               <Flex>
-                <LocationText ml="2rem" mr="2rem">
+                <LocationText ml="4rem" mr="2rem">
                   <PreserveSpan>
                     <span>Belford Experience Center</span>
                     <br />
@@ -183,31 +190,43 @@ const Home = () => (
 
           <DisplayContainer display={["block", "none", "none"]}>
             <Box mr="2rem">
-              <Text fontSize="location" color="copper" fontWeight="300">
-                SUN TOWERS 1
-              </Text>
+              <Suntowers1Link />
             </Box>
           </DisplayContainer>
 
           <Box>
             <DisplayContainer display={["block", "none"]}>
-              <Text fontSize="location" color="white">
-                EN | CH
-              </Text>
+              <LanguageSelect color="white" />
             </DisplayContainer>
             <DisplayContainer display={["none", "block"]}>
-              <Register>{strings.register}</Register>
+              <RegisterButton />
             </DisplayContainer>
           </Box>
-
-          {/* <LanguageSelect /> */}
         </Flex>
+
+        <DisplayContainer display={["none", "block", "block"]}>
+          <Flex
+            flexDirection="row"
+            alignItems="flex-end"
+            style={{
+              position: "relative",
+              float: "right",
+              width: "15rem",
+              height: "3rem",
+              transform: "translate(-3rem, 17rem) rotate(90deg)",
+              transformOrigin: "100% 100%"
+            }}
+          >
+            <LanguageSelect color="white" />
+            <Suntowers1Link />
+          </Flex>
+        </DisplayContainer>
 
         <Box>
           <Slide bottom>
             <Text
-              mt={["5rem", "7rem"]}
-              fontSize={["2.5rem", "title"]}
+              mt={["3rem", "7rem"]}
+              fontSize={["3rem", "4.7rem", "5.5rem", "8.5rem"]}
               fontFamily="vinter"
               textAlign="center"
               color="white"
@@ -216,7 +235,7 @@ const Home = () => (
               <Text
                 as="span"
                 fontFamily="vinter"
-                fontSize={["3.5rem", "titleNum"]}
+                fontSize={["4.5rem", "6.7rem", "7.8rem", "12rem"]}
                 color="white"
               >
                 2
@@ -226,11 +245,11 @@ const Home = () => (
 
           <Slide bottom>
             <Text
-              mt="3rem"
-              mb="3rem"
-              fontSize={["1.2rem", "headline"]}
+              mt={["3rem", "3rem", "5rem"]}
+              mb={["3rem", "5rem"]}
+              fontSize={["1.2rem", "1.6rem", "2rem", "2.2rem"]}
+              lineHeight={["2rem", "2.5rem", "2.8rem", "3.8rem"]}
               fontFamily="sans"
-              lineHeight={["2rem", "headline"]}
               textAlign="center"
               color="white"
               style={{ textTransform: "uppercase" }}
@@ -242,21 +261,26 @@ const Home = () => (
           </Slide>
 
           <DisplayContainer display={["block", "none"]} mb="4rem">
-            <Text textAlign="center">
-              <Register>{strings.register}</Register>
-            </Text>
+            <Box width="13rem" margin="auto">
+              <RegisterButton />
+            </Box>
           </DisplayContainer>
         </Box>
 
         <Container>
           <Slide bottom>
-            <img style={{ width: "100%" }} src="static/tower-hero.png" />
+            <Image
+              width={["100%"]}
+              height={["20rem", "30rem", "40rem"]}
+              src="static/tower-hero.png"
+              style={{ objectFit: "cover" }}
+            />
           </Slide>
         </Container>
       </HeroWrapper>
 
       <Slide bottom>
-        <Box mt="5rem" mb="5rem" width={["90%", "32rem"]} ml="auto" mr="auto">
+        <Box mt="5rem" mb="5rem" width={["90%", "35rem"]} ml="auto" mr="auto">
           <Heading2 textAlign="center" mb="2.5rem">
             Sun Towers in Metrotown's
             <br />
@@ -267,7 +291,7 @@ const Home = () => (
             Close to all the action, it is home to an international lifestyle
             paired with the unltimate convenience of SkyTrain and destination
             shopping. A place of unmatched amenities and prestigious personal
-            services.
+            services.cd
           </Text>
         </Box>
       </Slide>
@@ -277,15 +301,14 @@ const Home = () => (
       </Slide>
 
       <Slide bottom>
-        <Box mt="5rem" mb="5rem" width={["80%", "32rem"]} ml="auto" mr="auto">
+        <Box mt="5rem" mb="5rem" width={["80%", "35rem"]} ml="auto" mr="auto">
           <Heading2 textAlign="center" mb="1rem">
-            The Sun as returned to Metrotown
+            The Sun has returned to Metrotown
           </Heading2>
 
           <PreserveSpan>
             <Text textAlign="center">
-              <span>Now it's your turn to&nbsp;</span>
-              <span>take centre stage</span>
+              Now it's your turn to take centre stage
             </Text>
           </PreserveSpan>
         </Box>
@@ -295,7 +318,7 @@ const Home = () => (
         <OverlayImageContainer>
           <Image width={1 / 1} src="static/pool.png" />
 
-          <ClubContainer p="2rem" width={["80%", "23rem"]}>
+          <ClubContainer p="2rem" width={["80%", "35rem"]}>
             <Text textAlign="center">
               <Box width="5rem" m="auto">
                 <ReactSVG src="static/solaris.svg" />
@@ -311,14 +334,16 @@ const Home = () => (
                 badminton court, golf room, Sky Garden and more.
               </Text>
 
-              <Register>{strings.register}</Register>
+              <Box width="12rem" margin="auto">
+                <RegisterButton />
+              </Box>
             </Text>
           </ClubContainer>
         </OverlayImageContainer>
       </Slide>
 
       <Slide bottom>
-        <Container>
+        <Box width={["100%", "95%"]}>
           <Flex flexDirection={["column", "row"]} mt="3rem" mb={[0, "3rem"]}>
             <Box
               flex="1"
@@ -341,7 +366,7 @@ const Home = () => (
               <Image src="static/daycare.png" />
             </Box>
           </Flex>
-        </Container>
+        </Box>
       </Slide>
 
       <Slide bottom>
@@ -382,27 +407,33 @@ const Home = () => (
       </Slide>
 
       <Box bg="lightgray" p="3rem">
-        <Text textAlign="center">
+        <Text textAlign={["inherit", "center"]}>
           <Heading2 color="copper" mb="1rem">
             Limited Opportunities
           </Heading2>
 
           <Text color="copper">
-            Register to receive more information and an invitation to the
-            Belford Experience Centre
+            Register to receive more information and an invitation <br />
+            to the Belford Experience Centre
           </Text>
         </Text>
 
-        <Flex flexDirection={["column-reverse", "row"]} mt="10rem">
-          <Box mr="1rem" width="15rem">
-            <Flex>
+        <ContactForm />
+
+        <Flex flexDirection={["column-reverse", "row"]} mt={["2rem", "5rem"]}>
+          <Box mr={["0", "1rem"]} mt={["2rem", "0"]} width={[1 / 1, "25rem"]}>
+            <Text textAlign="center">
               <Image width="5rem" src="static/belford.png" mr="1rem" />
               <Image width="2rem" src="static/key.png" />
-            </Flex>
+            </Text>
           </Box>
 
-          <Box mr="1rem">
-            <Text fontSize="location" lineHeight="location">
+          <Box mr={["0", "1rem"]} mt={["2rem", "0"]}>
+            <Text
+              fontSize="location"
+              lineHeight="location"
+              textAlign={["center", "left"]}
+            >
               Sales & Marketing by Key Marketing. This is not an offering for
               sale. An offering for sale can only be made by way of disclosure
               statement E.&O.E.
@@ -412,23 +443,67 @@ const Home = () => (
           <Box>
             <Flex flexDirection={["column", "row"]}>
               <Box mr="1rem">
-                <Text fontSize="location" lineHeight="location">
+                <Text
+                  fontSize="location"
+                  lineHeight="location"
+                  textAlign={["center", "left"]}
+                >
                   Belford&nbsp;Experiece&nbsp;Center
-                  <br />
+                </Text>
+                <Text
+                  fontSize="location"
+                  lineHeight="location"
+                  textAlign={["center", "left"]}
+                >
                   101- 4211 Kingsway, Burnaby, BC V5H&nbsp;3Z2
                 </Text>
               </Box>
               <Box>
-                <Text fontSize="location" lineHeight="location">
-                  contact
-                  <br />
-                  604&nbsp;336&nbsp;0899
+                <Text
+                  fontSize="location"
+                  lineHeight="location"
+                  textAlign={["center", "left"]}
+                >
+                  <DisplayContainer display={["none", "block", "block"]}>
+                    contact
+                    <br />
+                    <span style={{ whiteSpace: "nowrap" }}>
+                      {strings.phone}
+                    </span>
+                  </DisplayContainer>
+
+                  <DisplayContainer display={["block", "none", "none"]}>
+                    <span style={{ whiteSpace: "nowrap" }}>
+                      {strings.phone}
+                    </span>
+                  </DisplayContainer>
                 </Text>
               </Box>
             </Flex>
           </Box>
         </Flex>
       </Box>
+      <DisplayContainer display={["block", "none", "none"]}>
+        <FixedHeader>
+          <Flex alignItems="center">
+            <Box width="6rem">
+              <ReactSVG
+                svgStyle={{ fill: "#8B634A" }}
+                src="static/logo-full.svg"
+                style={{ position: "relative", top: "0.15rem", left: "0.5rem" }}
+              />
+            </Box>
+            <Box flex="1">
+              <Text textAlign="right" pr="1rem">
+                <LanguageSelect color="darkgray" />
+              </Text>
+            </Box>
+            <Box width="10rem" bg="pink">
+              <RegisterButton />
+            </Box>
+          </Flex>
+        </FixedHeader>
+      </DisplayContainer>
     </>
   </ThemeContainer>
 );

@@ -7,6 +7,7 @@
     "export": "next build && next export -o ./docs"
   },
   "dependencies": {
+    "formik": "^1.5.2",
     "next": "^8.0.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -14,6 +15,7 @@
     "react-reveal": "^1.2.2",
     "react-svg": "^8.0.4",
     "rebass": "^3.1.0",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "yup": "^0.27.0"
   }
 }
