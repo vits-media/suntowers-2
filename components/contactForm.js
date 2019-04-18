@@ -3,8 +3,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
 import RegisterButton from "../components/registerButton";
-import strings from "../language/strings";
-import DisplayContainer from "../components/displayContainer";
+import { useTranslation } from "react-i18next";
 
 import { Flex, Box, Text, Image } from "rebass";
 import { width, fontSize, color } from "styled-system";
@@ -77,107 +76,112 @@ export const Select = styled.select`
     </svg>");
 `;
 
-const ContactForm = () => (
-  <Formik
-    initialValues={{
-      firstName: "",
-      lastName: "",
-      email: ""
-    }}
-    validationSchema={SignupSchema}
-    onSubmit={values => {
-      // same shape as initial values
-      console.log(values);
-    }}
-  >
-    {({ errors, touched, handleSubmit }) => (
-      <Flex
-        width={[1 / 1, "600px"]}
-        ml={["auto"]}
-        mr={["auto"]}
-        mt="2rem"
-        flexDirection="column"
-        as="form"
-        id="ContactForm"
-        onSubmit={handleSubmit}
-      >
-        <Flex flexDirection={["column", "row"]}>
-          <TextInput
-            width={[1 / 1, 1 / 2]}
-            type="text"
-            name="firstName"
-            placeholder="First Name *"
-          />
-          {errors.firstName && touched.firstName ? (
-            <div>{errors.firstName}</div>
-          ) : null}
-          <TextInput
-            width={[1 / 1, 1 / 2]}
-            type="text"
-            name="lastName"
-            placeholder="Last Name *"
-          />
-          {errors.lastName && touched.lastName ? (
-            <div>{errors.lastName}</div>
-          ) : null}
-        </Flex>
-        <Flex flexDirection={["column", "row"]}>
-          <TextInput
-            width={[1 / 1, 1 / 2]}
-            type="text"
-            name="email"
-            placeholder="Email *"
-            type="email"
-          />
-          {errors.email && touched.email ? <div>{errors.email}</div> : null}
-          <TextInput
-            width={[1 / 1, 1 / 2]}
-            type="text"
-            name="phoneNumber"
-            placeholder="Phone *"
-          />
-          {errors.phoneNumber && touched.phoneNumber ? (
-            <div>{errors.phoneNumber}</div>
-          ) : null}
-        </Flex>
-        <Box>
-          <Select name="heardAboutFrom" width={[1 / 1]}>
-            <option value="" disabled selected>
-              How did you hear about us?
-            </option>
-            <option value="181538">Online Web Search</option>
-            <option value="178861">Radio</option>
-            <option value="239584">YVR Airport</option>
-            <option value="239585">Chinese Newspaper/Print</option>
-            <option value="178860">Other</option>
-            <option value="239586">Publication</option>
-            <option value="194800">WeChat</option>
-            <option value="178599">Word of mouth</option>
-          </Select>
-        </Box>
-        <Box>
-          <TextInput
-            width={[1 / 1]}
-            type="text"
-            name="Other"
-            placeholder="If Other (please Specify)"
-          />
-        </Box>
+const ContactForm = () => {
+  const { t, i18n } = useTranslation();
+  return (
+    <Formik
+      initialValues={{
+        firstName: "",
+        lastName: "",
+        email: ""
+      }}
+      validationSchema={SignupSchema}
+      onSubmit={values => {
+        // same shape as initial values
+        console.log(values);
+      }}
+    >
+      {({ errors, touched, handleSubmit }) => (
+        <Flex
+          width={[1 / 1, "600px"]}
+          ml={["auto"]}
+          mr={["auto"]}
+          mt="2rem"
+          flexDirection="column"
+          as="form"
+          id="ContactForm"
+          onSubmit={handleSubmit}
+        >
+          <Flex flexDirection={["column", "row"]}>
+            <TextInput
+              width={[1 / 1, 1 / 2]}
+              type="text"
+              name="firstName"
+              placeholder={t("firstName")}
+            />
+            {errors.firstName && touched.firstName ? (
+              <div>{errors.firstName}</div>
+            ) : null}
+            <TextInput
+              width={[1 / 1, 1 / 2]}
+              type="text"
+              name="lastName"
+              placeholder={t("lastName")}
+            />
+            {errors.lastName && touched.lastName ? (
+              <div>{errors.lastName}</div>
+            ) : null}
+          </Flex>
+          <Flex flexDirection={["column", "row"]}>
+            <TextInput
+              width={[1 / 1, 1 / 2]}
+              type="text"
+              name="email"
+              placeholder={t("email")}
+              type="email"
+            />
+            {errors.email && touched.email ? <div>{errors.email}</div> : null}
+            <TextInput
+              width={[1 / 1, 1 / 2]}
+              type="text"
+              name="phoneNumber"
+              placeholder={t("phone")}
+            />
+            {errors.phoneNumber && touched.phoneNumber ? (
+              <div>{errors.phoneNumber}</div>
+            ) : null}
+          </Flex>
+          <Box>
+            <Select name="heardAboutFrom" width={[1 / 1]}>
+              <option value="" disabled selected>
+                {t("howHear")}
+              </option>
+              <option value="181538">Online Web Search</option>
+              <option value="178861">Radio</option>
+              <option value="239584">YVR Airport</option>
+              <option value="239585">Chinese Newspaper/Print</option>
+              <option value="178860">Other</option>
+              <option value="239586">Publication</option>
+              <option value="194800">WeChat</option>
+              <option value="178599">Word of mouth</option>
+            </Select>
+          </Box>
+          <Box>
+            <TextInput
+              width={[1 / 1]}
+              type="text"
+              name="Other"
+              placeholder={t("ifOther")}
+            />
+          </Box>
 
-        <Box>
-          <Text fontSize="location">
-            Are you are realtor?&nbsp;
-            <input type="radio" name="isRealtor" value="Yes" /> Yes&nbsp;
-            <input type="radio" name="isRealtor" value="No" checked /> No
-          </Text>
-        </Box>
+          <Box>
+            <Text fontSize="location">
+              {t("realtor")}&nbsp;
+              <input type="radio" name="isRealtor" value="Yes" /> {t("yes")}
+              &nbsp;
+              <input type="radio" name="isRealtor" value="No" checked />{" "}
+              {t("no")}
+            </Text>
+          </Box>
 
-        <Box mt="2rem" bg="pink">
-          <RegisterButton />
-        </Box>
-      </Flex>
-    )}
-  </Formik>
-);
+          <Box mt="2rem" bg="pink">
+            <RegisterButton />
+          </Box>
+        </Flex>
+      )}
+    </Formik>
+  );
+};
 
 export default ContactForm;
