@@ -1,18 +1,19 @@
+import i18n from "i18next";
 import React from "react";
-import Head from "../components/head";
-import ContactForm from "../components/contactForm";
-import styled from "styled-components";
-import ThemeContainer from "./themeContainer";
+import { useTranslation } from "react-i18next";
 import Slide from "react-reveal/Slide";
-import RegisterButton from "../components/registerButton";
+import ReactSVG from "react-svg";
+import { Box, Button, Flex, Image, Text } from "rebass";
+import styled from "styled-components";
+import Analytics from "../components/analytics";
+import ContactForm from "../components/contactForm";
 import DisplayContainer from "../components/displayContainer";
 import FixedHeader from "../components/fixedHeader";
-import GlobalStyle from "../theme/globalStyle";
-import ReactSVG from "react-svg";
-import { useTranslation } from "react-i18next";
+import Head from "../components/head";
+import RegisterButton from "../components/registerButton";
 import "../language/i18n";
-import i18n from "i18next";
-import { Flex, Box, Text, Image, Button } from "rebass";
+import GlobalStyle from "../theme/globalStyle";
+import ThemeContainer from "./themeContainer";
 
 Text.defaultProps = {
   fontSize: "copy",
@@ -191,6 +192,9 @@ const Home = () => {
       <>
         <Head title="New Metrotown Condos in Burnaby, BC | Sun Towers 2 | suntowersmetrotown.com" />
         <GlobalStyle />
+
+        <Analytics />
+
         <HeroWrapper>
           <Flex p={["1rem", "2rem"]} alignItems="center">
             <Box width={["7.5rem", "10rem"]}>
