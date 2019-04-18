@@ -79,7 +79,7 @@ const resources = {
       realtor: "您是地产经纪吗",
       yes: "是",
       no: "否",
-      online: "Online Web Search",
+      online: "网页搜索",
       radio: "电台",
       yvr: "YVR机场",
       chinesePaper: "中文报纸/杂志",

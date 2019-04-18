@@ -57,21 +57,21 @@ const LocationText = props => (
 );
 
 const LanguageButton = props => {
+  const activeColor = props.lang === i18n.language ? "white" : "copper";
   return (
     <Button
       as="span"
       {...props}
       fontSize="location"
       lineHeight="location"
+      color={["copper", activeColor]}
       mr={["0.5rem", "1rem"]}
       style={{
         background: "transparent",
         cursor: "pointer",
-        paddingLeft: 0,
-        paddingRight: 0
+        padding: 0,
+        lineHeight: "1.8rem"
       }}
-      // fontWeight="bold"
-      // mr={[0, "2rem", "2rem"]}
     />
   );
 };
@@ -80,28 +80,18 @@ const LanguageSelect = props => {
   const changeLanguage = lng => {
     i18n.changeLanguage(lng);
   };
+
   return (
     <>
-      <LanguageButton {...props} onClick={() => changeLanguage("en")}>
+      <LanguageButton {...props} lang="en" onClick={() => changeLanguage("en")}>
         EN
       </LanguageButton>
-      <LanguageButton {...props} onClick={() => changeLanguage("zh")}>
+      <LanguageButton {...props} lang="zh" onClick={() => changeLanguage("zh")}>
         中文
       </LanguageButton>
     </>
   );
 };
-
-// const LanguageSelect = props => (
-//   <Text
-//   {...props}
-//   fontSize="location"
-//   mr={[0, "2rem", "2rem"]}
-//   fontWeight="bold"
-// >
-// </Text>
-
-// );
 
 const Suntowers1Link = props => (
   <Text
@@ -110,8 +100,9 @@ const Suntowers1Link = props => (
     href="http://www.suntowersmetrotown.com/suntower-1/"
     fontSize="location"
     fontWeight="bold"
-    color="white"
+    color="copper"
     target="_blank"
+    cursor="pointer"
     style={{ textDecoration: "none" }}
   >
     SUN TOWERS 1
@@ -202,7 +193,7 @@ const Home = () => {
         <GlobalStyle />
         <HeroWrapper>
           <Flex p={["1rem", "2rem"]} alignItems="center">
-            <Box width={["7rem", "10rem"]}>
+            <Box width={["7.5rem", "10rem"]}>
               <ReactSVG
                 svgStyle={{ fill: "#8B634A" }}
                 src="static/logo-full.svg"
@@ -291,6 +282,7 @@ const Home = () => {
                 mb={["3rem", "5rem"]}
                 fontSize={["1.2rem", "1.6rem", "2rem", "2.2rem"]}
                 lineHeight={["2rem", "2.5rem", "2.8rem", "3.8rem"]}
+                fontWeight="medium"
                 fontFamily="sans"
                 textAlign="center"
                 color="white"
@@ -466,6 +458,7 @@ const Home = () => {
                     lineHeight="location"
                     textAlign={["center", "left"]}
                     style={{ whiteSpace: "nowrap" }}
+                    color={["copper", "inherit"]}
                   >
                     {t("experienceCenter")}
                   </Text>
