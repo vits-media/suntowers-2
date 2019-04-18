@@ -216,12 +216,12 @@ const Home = () => {
                     <PreserveSpan>
                       <span>{t("experienceCenter")}</span>
                       <br />
-                      <span>101 – 4211 Kingsway, Burnaby</span>
+                      <span>{t("experienceAddress")}</span>
                     </PreserveSpan>
                   </LocationText>
                   <LocationText>
                     <PreserveSpan>
-                      <span>604 336 0899</span>
+                      <span>{t("experiencePhone")}</span>
                       <br />
                       <span>{t("openHours")}</span>
                     </PreserveSpan>
@@ -465,15 +465,17 @@ const Home = () => {
                     fontSize="location"
                     lineHeight="location"
                     textAlign={["center", "left"]}
+                    style={{ whiteSpace: "nowrap" }}
                   >
-                    Belford&nbsp;Experiece&nbsp;Center
+                    {t("experienceCenter")}
                   </Text>
                   <Text
                     fontSize="location"
                     lineHeight="location"
                     textAlign={["center", "left"]}
+                    style={{ whiteSpace: "nowrap" }}
                   >
-                    101- 4211 Kingsway, Burnaby, BC V5H&nbsp;3Z2
+                    {t("experienceAddress")}
                   </Text>
                 </Box>
                 <Box>
@@ -486,13 +488,13 @@ const Home = () => {
                       contact
                       <br />
                       <span style={{ whiteSpace: "nowrap" }}>
-                        {/* {strings.phone} */}
+                        {t("experiencePhone")}
                       </span>
                     </DisplayContainer>
 
                     <DisplayContainer display={["block", "none", "none"]}>
                       <span style={{ whiteSpace: "nowrap" }}>
-                        {/* {strings.phone} */}
+                        {t("experiencePhone")}
                       </span>
                     </DisplayContainer>
                   </Text>
