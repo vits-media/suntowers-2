@@ -373,15 +373,15 @@ const Home = () => {
         </Slide>
 
         <Slide bottom>
-          <Box width={["100%", "95%"]}>
+          <Box width={["100%", "95%"]} margin="auto">
             <Flex flexDirection={["column", "row"]} mt="3rem" mb={[0, "3rem"]}>
               <Box
                 flex="1"
                 padding={["2rem", "inherit", "inherit"]}
-                ml={["auto", "4rem"]}
-                mr={["auto", "4rem"]}
+                ml={["auto", "2rem", "4rem"]}
+                mr={["auto", "2rem", "4rem"]}
                 mb={["2rem", 0]}
-                mt={[0, 0, "4rem", "6rem"]}
+                mt={[0, "3rem", "4rem", "10rem"]}
               >
                 <Heading1
                   mb="1rem"
@@ -472,18 +472,21 @@ const Home = () => {
           <ContactForm />
 
           <Flex flexDirection={["column-reverse", "row"]} mt={["2rem", "5rem"]}>
-            <Box mr={["0", "1rem"]} mt={["2rem", "0"]} width={[1 / 1, "25rem"]}>
-              <Text textAlign="center">
+            <Box mr={["0", "1rem"]} mt={["2rem", "0"]} width={[1 / 1, "8rem"]}>
+              <Text textAlign={["center", "left"]}>
                 <Image width="5rem" src="static/belford.png" mr="1rem" />
                 <Image width="2rem" src="static/key.png" />
               </Text>
             </Box>
 
-            <Box mr={["0", "1rem"]} mt={["2rem", "0"]}>
+            <Box mr={["0", "1rem"]} mt={["2rem", "0"]} flex="1">
               <Text
                 fontSize="location"
                 lineHeight="location"
                 textAlign={["center", "left"]}
+                ml={["auto", "auto", "3rem"]}
+                mr={["auto", "auto", "inherit"]}
+                style={{ maxWidth: "32rem" }}
               >
                 Sales & Marketing by Key Marketing. This is not an offering for
                 sale. An offering for sale can only be made by way of disclosure
@@ -492,7 +495,7 @@ const Home = () => {
             </Box>
 
             <Box>
-              <Flex flexDirection={["column", "row"]}>
+              <Flex flexDirection={["column", "column", "row"]}>
                 <Box mr="1rem">
                   <Text
                     fontSize="location"
@@ -519,7 +522,7 @@ const Home = () => {
                     lineHeight="location"
                     textAlign={["center", "left"]}
                   >
-                    <DisplayContainer display={["none", "block", "block"]}>
+                    <DisplayContainer display={["none", "none", "block"]}>
                       <Text
                         fontSize="location"
                         lineHeight="location"
@@ -532,10 +535,10 @@ const Home = () => {
                       </Text>
                     </DisplayContainer>
 
-                    <DisplayContainer display={["block", "none", "none"]}>
+                    <DisplayContainer display={["block", "block", "none"]}>
                       <Text
                         style={{ whiteSpace: "nowrap" }}
-                        color={["copper", "inherit"]}
+                        color={["copper", "copper", "inherit"]}
                         fontSize="location"
                       >
                         {t("experiencePhone")}
@@ -566,7 +569,7 @@ const Home = () => {
                   <LanguageSelect color="darkgray" />
                 </Text>
               </Box>
-              <Box width="10rem" bg="pink">
+              <Box width="10rem">
                 <RegisterButton />
               </Box>
             </Flex>
