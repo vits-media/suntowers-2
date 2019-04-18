@@ -16,9 +16,11 @@ export const Register = styled.span`
   margin: auto;
   line-height: 2.1rem;
   white-space: nowrap;
+  border: none;
   box-shadow: inset 0 0 0 0.4rem ${props => props.theme.colors.copper},
     inset 0 0 0 0.45rem #fff;
   cursor: pointer;
+  color: white;
   a {
     text-decoration: none;
     color: white;

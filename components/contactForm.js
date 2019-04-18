@@ -1,23 +1,17 @@
+import { Formik } from "formik";
 import React from "react";
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
-import styled from "styled-components";
-import RegisterButton from "../components/registerButton";
 import { useTranslation } from "react-i18next";
-
-import { Flex, Box, Text, Image } from "rebass";
-import { width, fontSize, color } from "styled-system";
+import { Box, Flex, Text } from "rebass";
+import styled from "styled-components";
+import { fontSize, width } from "styled-system";
+import * as Yup from "yup";
+import { Register } from "../components/registerButton";
 
 const SignupSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  lastName: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  email: Yup.string()
+  FirstName: Yup.string().required("Required"),
+  LastName: Yup.string().required("Required"),
+  Phone: Yup.string().required("Required"),
+  Email: Yup.string()
     .email("Invalid email")
     .required("Required")
 });
@@ -27,7 +21,8 @@ export const TextInput = styled.input`
   ${fontSize}
   height: 3rem;
   font-size: ${props => props.theme.fontSizes.location};
-  border: none;
+  border: ${props =>
+    props.hasError ? "1px solid " + props.theme.colors.red : "none"};
   background-color: #fff;
   margin-bottom: 0.5rem;
   border-radius: 0px;
@@ -80,80 +75,84 @@ const ContactForm = () => {
   const { t, i18n } = useTranslation();
   return (
     <Formik
-      initialValues={{
-        firstName: "",
-        lastName: "",
-        email: ""
-      }}
       validationSchema={SignupSchema}
-      onSubmit={values => {
-        // same shape as initial values
-        console.log(values);
+      onSubmit={(values, actions) => {
+        // submit
+        console.log(">", values);
       }}
-    >
-      {({ errors, touched, handleSubmit }) => (
+      render={({ errors, touched, handleBlur, handleChange, handleSubmit }) => (
         <Flex
+          onSubmit={handleSubmit}
+          as="form"
+          id="ContactForm"
+          flexDirection="column"
           width={[1 / 1, "600px"]}
           ml={["auto"]}
           mr={["auto"]}
           mt="2rem"
-          flexDirection="column"
-          as="form"
-          id="ContactForm"
-          onSubmit={handleSubmit}
         >
           <Flex flexDirection={["column", "row"]}>
             <TextInput
               width={[1 / 1, 1 / 2]}
               type="text"
-              name="firstName"
+              name="FirstName"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              hasError={errors.FirstName && touched.FirstName}
               placeholder={t("firstName")}
             />
-            {errors.firstName && touched.firstName ? (
-              <div>{errors.firstName}</div>
-            ) : null}
+
             <TextInput
               width={[1 / 1, 1 / 2]}
               type="text"
-              name="lastName"
+              name="LastName"
+              onChange={handleChange}
+              onBlur={handleBlur}
               placeholder={t("lastName")}
+              hasError={errors.LastName && touched.LastName}
             />
-            {errors.lastName && touched.lastName ? (
-              <div>{errors.lastName}</div>
-            ) : null}
           </Flex>
           <Flex flexDirection={["column", "row"]}>
             <TextInput
               width={[1 / 1, 1 / 2]}
-              type="text"
-              name="email"
+              type="email"
+              name="Email"
+              onChange={handleChange}
+              onBlur={handleBlur}
               placeholder={t("email")}
+              hasError={errors.Email && touched.Email}
               type="email"
             />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
             <TextInput
               width={[1 / 1, 1 / 2]}
               type="text"
-              name="phoneNumber"
+              name="Phone"
+              onChange={handleChange}
+              onBlur={handleBlur}
               placeholder={t("phone")}
+              hasError={errors.Phone && touched.Phone}
             />
-            {errors.phoneNumber && touched.phoneNumber ? (
-              <div>{errors.phoneNumber}</div>
-            ) : null}
           </Flex>
           <Box>
-            <Select name="heardAboutFrom" width={[1 / 1]}>
-              <option value="" disabled selected>
+            <Select
+              name="HowDidYou"
+              width={[1 / 1]}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            >
+              <option value={t("howHear")} defaultValue>
                 {t("howHear")}
               </option>
-              <option value="181538">{t("online")}</option>
-              <option value="178861">{t("radio")}</option>
-              <option value="239584">{t("yvr")}</option>
-              <option value="239585">{t("chinesePaper")}</option>
-              <option value="178860">{t("other")}</option>
-              <option value="239586">{t("publication")}</option>
-              <option value="194800">{t("wechat")}</option>
-              <option value="178599">{t("wordofmouth")}</option>
+              <option value="Online Web Search">{t("online")}</option>
+              <option value="Radio">{t("radio")}</option>
+              <option value="YVR Airport">{t("yvr")}</option>
+              <option value="Chinese Newspaper/Print">
+                {t("chinesePaper")}
+              </option>
+              <option value="Other">{t("other")}</option>
+              <option value="Publication">{t("publication")}</option>
+              <option value="WeChat">{t("wechat")}</option>
+              <option value="Word of mouth">{t("wordofmouth")}</option>
             </Select>
           </Box>
           <Box>
@@ -161,6 +160,8 @@ const ContactForm = () => {
               width={[1 / 1]}
               type="text"
               name="Other"
+              onChange={handleChange}
+              onBlur={handleBlur}
               placeholder={t("ifOther")}
             />
           </Box>
@@ -168,19 +169,35 @@ const ContactForm = () => {
           <Box>
             <Text fontSize="location">
               {t("realtor")}&nbsp;
-              <input type="radio" name="isRealtor" value="Yes" /> {t("yes")}
+              <input
+                type="radio"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                name="isRealtor"
+                value="Yes"
+              />{" "}
+              {t("yes")}
               &nbsp;
-              <input type="radio" name="isRealtor" value="No" checked />{" "}
+              <input
+                type="radio"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                name="isRealtor"
+                value="No"
+                defaultChecked
+              />{" "}
               {t("no")}
             </Text>
           </Box>
 
-          <Box mt="2rem" bg="pink">
-            <RegisterButton />
+          <Box mt="2rem">
+            <Register as="button" type="submit">
+              {t("register")}
+            </Register>
           </Box>
         </Flex>
       )}
-    </Formik>
+    />
   );
 };
 
