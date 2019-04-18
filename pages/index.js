@@ -469,7 +469,7 @@ const Home = () => {
             </Text>
           </Text>
 
-          <ContactForm />
+          <ContactForm onSubmit="/thankyou.php" />
 
           <Flex flexDirection={["column-reverse", "row"]} mt={["2rem", "5rem"]}>
             <Box mr={["0", "1rem"]} mt={["2rem", "0"]} width={[1 / 1, "8rem"]}>

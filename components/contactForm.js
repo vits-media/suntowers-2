@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { fontSize, width } from "styled-system";
 import * as Yup from "yup";
 import { Register } from "../components/registerButton";
+import Router from "next/router";
 
 const SignupSchema = Yup.object().shape({
   FirstName: Yup.string().required("Required"),
@@ -71,10 +72,12 @@ export const Select = styled.select`
     </svg>");
 `;
 
-const ContactForm = () => {
+const ContactForm = props => {
   const { t, i18n } = useTranslation();
   const formComplete = () => {
-    console.log("form submitted, redirect to thank you.");
+    Router.push({
+      pathname: props.onSubmit
+    });
   };
   return (
     <Formik
