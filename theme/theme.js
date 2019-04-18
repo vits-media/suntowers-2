@@ -25,7 +25,8 @@ export default {
     gray: "#8C8C8C",
     lightgray: "#F5F5F5",
     darkgray: "#9B9B9B",
-    white: "#ffffff"
+    white: "#ffffff",
+    red: "#B88888"
   },
 
   fonts: {
