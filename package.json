@@ -8,10 +8,11 @@
   },
   "dependencies": {
     "formik": "^1.5.2",
+    "i18next": "^15.0.9",
     "next": "^8.0.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-localization": "^1.0.13",
+    "react-i18next": "^10.8.1",
     "react-reveal": "^1.2.2",
     "react-svg": "^8.0.4",
     "rebass": "^3.1.0",

@@ -1,5 +1,4 @@
 import React from "react";
-import strings from "../language/strings";
 import styled from "styled-components";
 import { Flex, Box, Text, Image } from "rebass";
 

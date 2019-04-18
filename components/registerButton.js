@@ -1,6 +1,7 @@
 import React from "react";
-import strings from "../language/strings";
 import styled from "styled-components";
+import "../language/i18n";
+import { useTranslation } from "react-i18next";
 
 export const Register = styled.span`
   font-size: ${props => props.theme.fontSizes.copy};
@@ -24,10 +25,13 @@ export const Register = styled.span`
   }
 `;
 
-const RegisterButton = () => (
-  <Register>
-    <a href="#ContactForm">{strings.register}</a>
-  </Register>
-);
+const RegisterButton = () => {
+  const { t, i18n } = useTranslation();
+  return (
+    <Register>
+      <a href="#ContactForm">{t("register")}</a>
+    </Register>
+  );
+};
 
 export default RegisterButton;
