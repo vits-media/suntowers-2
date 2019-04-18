@@ -1,18 +1,19 @@
+import i18n from "i18next";
 import React from "react";
-import Head from "../components/head";
-import ContactForm from "../components/contactForm";
-import styled from "styled-components";
-import ThemeContainer from "./themeContainer";
+import { useTranslation } from "react-i18next";
 import Slide from "react-reveal/Slide";
-import RegisterButton from "../components/registerButton";
+import ReactSVG from "react-svg";
+import { Box, Button, Flex, Image, Text } from "rebass";
+import styled from "styled-components";
+import Analytics from "../components/analytics";
+import ContactForm from "../components/contactForm";
 import DisplayContainer from "../components/displayContainer";
 import FixedHeader from "../components/fixedHeader";
-import GlobalStyle from "../theme/globalStyle";
-import ReactSVG from "react-svg";
-import { useTranslation } from "react-i18next";
+import Head from "../components/head";
+import RegisterButton from "../components/registerButton";
 import "../language/i18n";
-import i18n from "i18next";
-import { Flex, Box, Text, Image, Button } from "rebass";
+import GlobalStyle from "../theme/globalStyle";
+import ThemeContainer from "./themeContainer";
 
 Text.defaultProps = {
   fontSize: "copy",
@@ -57,21 +58,21 @@ const LocationText = props => (
 );
 
 const LanguageButton = props => {
+  const activeColor = props.lang === i18n.language ? "white" : "copper";
   return (
     <Button
       as="span"
       {...props}
       fontSize="location"
       lineHeight="location"
+      color={["copper", activeColor]}
       mr={["0.5rem", "1rem"]}
       style={{
         background: "transparent",
         cursor: "pointer",
-        paddingLeft: 0,
-        paddingRight: 0
+        padding: 0,
+        lineHeight: "1.8rem"
       }}
-      // fontWeight="bold"
-      // mr={[0, "2rem", "2rem"]}
     />
   );
 };
@@ -80,28 +81,18 @@ const LanguageSelect = props => {
   const changeLanguage = lng => {
     i18n.changeLanguage(lng);
   };
+
   return (
     <>
-      <LanguageButton {...props} onClick={() => changeLanguage("en")}>
+      <LanguageButton {...props} lang="en" onClick={() => changeLanguage("en")}>
         EN
       </LanguageButton>
-      <LanguageButton {...props} onClick={() => changeLanguage("zh")}>
+      <LanguageButton {...props} lang="zh" onClick={() => changeLanguage("zh")}>
         中文
       </LanguageButton>
     </>
   );
 };
-
-// const LanguageSelect = props => (
-//   <Text
-//   {...props}
-//   fontSize="location"
-//   mr={[0, "2rem", "2rem"]}
-//   fontWeight="bold"
-// >
-// </Text>
-
-// );
 
 const Suntowers1Link = props => (
   <Text
@@ -110,8 +101,9 @@ const Suntowers1Link = props => (
     href="http://www.suntowersmetrotown.com/suntower-1/"
     fontSize="location"
     fontWeight="bold"
-    color="white"
+    color="copper"
     target="_blank"
+    cursor="pointer"
     style={{ textDecoration: "none" }}
   >
     SUN TOWERS 1
@@ -200,9 +192,12 @@ const Home = () => {
       <>
         <Head title="New Metrotown Condos in Burnaby, BC | Sun Towers 2 | suntowersmetrotown.com" />
         <GlobalStyle />
+
+        <Analytics />
+
         <HeroWrapper>
           <Flex p={["1rem", "2rem"]} alignItems="center">
-            <Box width={["7rem", "10rem"]}>
+            <Box width={["7.5rem", "10rem"]}>
               <ReactSVG
                 svgStyle={{ fill: "#8B634A" }}
                 src="static/logo-full.svg"
@@ -216,12 +211,12 @@ const Home = () => {
                     <PreserveSpan>
                       <span>{t("experienceCenter")}</span>
                       <br />
-                      <span>101 – 4211 Kingsway, Burnaby</span>
+                      <span>{t("experienceAddress")}</span>
                     </PreserveSpan>
                   </LocationText>
                   <LocationText>
                     <PreserveSpan>
-                      <span>604 336 0899</span>
+                      <span>{t("experiencePhone")}</span>
                       <br />
                       <span>{t("openHours")}</span>
                     </PreserveSpan>
@@ -291,6 +286,7 @@ const Home = () => {
                 mb={["3rem", "5rem"]}
                 fontSize={["1.2rem", "1.6rem", "2rem", "2.2rem"]}
                 lineHeight={["2rem", "2.5rem", "2.8rem", "3.8rem"]}
+                fontWeight="medium"
                 fontFamily="sans"
                 textAlign="center"
                 color="white"
@@ -465,15 +461,18 @@ const Home = () => {
                     fontSize="location"
                     lineHeight="location"
                     textAlign={["center", "left"]}
+                    style={{ whiteSpace: "nowrap" }}
+                    color={["copper", "inherit"]}
                   >
-                    Belford&nbsp;Experiece&nbsp;Center
+                    {t("experienceCenter")}
                   </Text>
                   <Text
                     fontSize="location"
                     lineHeight="location"
                     textAlign={["center", "left"]}
+                    style={{ whiteSpace: "nowrap" }}
                   >
-                    101- 4211 Kingsway, Burnaby, BC V5H&nbsp;3Z2
+                    {t("experienceAddress")}
                   </Text>
                 </Box>
                 <Box>
@@ -486,13 +485,13 @@ const Home = () => {
                       contact
                       <br />
                       <span style={{ whiteSpace: "nowrap" }}>
-                        {/* {strings.phone} */}
+                        {t("experiencePhone")}
                       </span>
                     </DisplayContainer>
 
                     <DisplayContainer display={["block", "none", "none"]}>
                       <span style={{ whiteSpace: "nowrap" }}>
-                        {/* {strings.phone} */}
+                        {t("experiencePhone")}
                       </span>
                     </DisplayContainer>
                   </Text>

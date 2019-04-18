@@ -46,30 +46,5 @@ export default () => (
       font-size: 16px;
       font-family: "gotham", sans-serif;
     }
-
-    // p {
-    //   font-size: 0.8rem;
-    //   line-height: 1.5rem;
-    //   font-weight: 100;
-    // }
-
-    // h1,
-    // h3 {
-    //   font-family: "vinter";
-    // }
-
-    // h1 {
-    //   font-weight: 100;
-    // }
-
-    // h2 {
-    //   font-family: "vinter";
-    //   font-weight: 100;
-    // }
-
-    // h3 {
-    //   font-family: "vinter";
-    //   font-weight: 100;
-    // }
   `}</style>
 );

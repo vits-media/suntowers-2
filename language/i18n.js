@@ -4,6 +4,8 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
+      experiencePhone: "604 336 0899",
+      experienceAddress: "101 – 4211 Kingsway, Burnaby",
       experienceCenter: "Belford experience center",
       openHours: "Open daily 11am to 5pm (except Friday)",
       register: "Register now",
@@ -33,11 +35,21 @@ const resources = {
       ifOther: "If Other ( please Specify)",
       realtor: "Are you a realtor?",
       yes: "Yes",
-      no: "No"
+      no: "No",
+      online: "Online Web Search",
+      radio: "Radio",
+      yvr: "YVR Airport",
+      chinesePaper: "Chinese Newspaper/Print",
+      other: "Other",
+      publication: "Publication",
+      wechat: "WeChat",
+      wordofmouth: "Word of mouth"
     }
   },
   zh: {
     translation: {
+      experiencePhone: "604 336 0899",
+      experienceAddress: "101 – 4211 Kingsway, Burnaby",
       experienceCenter: "Belford 项目体验中心",
       openHours: "每天上午11时至下午5点（周五除外）",
       register: "现在注册",
@@ -62,11 +74,19 @@ const resources = {
       lastName: "姓 *",
       email: "电子邮件 *",
       phone: "电话号码 *",
-      howHear: "如何了解我们",
+      howHear: "如何了解到我们",
       ifOther: "其他（请注明",
       realtor: "您是地产经纪吗",
       yes: "是",
-      no: "否"
+      no: "否",
+      online: "网页搜索",
+      radio: "电台",
+      yvr: "YVR机场",
+      chinesePaper: "中文报纸/杂志",
+      other: "其它",
+      publication: "刊物",
+      wechat: "微信",
+      wordofmouth: "口口相传"
     }
   }
 };

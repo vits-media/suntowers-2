@@ -16,7 +16,8 @@ export default {
     location: "1.2rem"
   },
   fontWeights: {
-    bold: 400
+    medium: "300",
+    bold: "400"
   },
   colors: {
     copper: "#8B634A",

@@ -146,14 +146,14 @@ const ContactForm = () => {
               <option value="" disabled selected>
                 {t("howHear")}
               </option>
-              <option value="181538">Online Web Search</option>
-              <option value="178861">Radio</option>
-              <option value="239584">YVR Airport</option>
-              <option value="239585">Chinese Newspaper/Print</option>
-              <option value="178860">Other</option>
-              <option value="239586">Publication</option>
-              <option value="194800">WeChat</option>
-              <option value="178599">Word of mouth</option>
+              <option value="181538">{t("online")}</option>
+              <option value="178861">{t("radio")}</option>
+              <option value="239584">{t("yvr")}</option>
+              <option value="239585">{t("chinesePaper")}</option>
+              <option value="178860">{t("other")}</option>
+              <option value="239586">{t("publication")}</option>
+              <option value="194800">{t("wechat")}</option>
+              <option value="178599">{t("wordofmouth")}</option>
             </Select>
           </Box>
           <Box>
