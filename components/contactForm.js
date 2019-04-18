@@ -73,12 +73,26 @@ export const Select = styled.select`
 
 const ContactForm = () => {
   const { t, i18n } = useTranslation();
+  const formComplete = () => {
+    console.log("form submitted, redirect to thank you.");
+  };
   return (
     <Formik
       validationSchema={SignupSchema}
       onSubmit={(values, actions) => {
         // submit
-        console.log(">", values);
+        console.log("formdata:", values);
+
+        fetch("form.php", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(values)
+        })
+          .then(formComplete)
+          .catch(error => console.error("Error:", error));
       }}
       render={({ errors, touched, handleBlur, handleChange, handleSubmit }) => (
         <Flex
@@ -159,7 +173,7 @@ const ContactForm = () => {
             <TextInput
               width={[1 / 1]}
               type="text"
-              name="Other"
+              name="HowHeardOther"
               onChange={handleChange}
               onBlur={handleBlur}
               placeholder={t("ifOther")}
