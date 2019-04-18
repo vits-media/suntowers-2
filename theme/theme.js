@@ -2,16 +2,10 @@ export default {
   breakpoints: ["700px", "800px", "1200px"],
 
   fontSizes: {
-    heading1: "3rem",
-    heading2: "2rem",
-    heading3: "1.6rem",
     copy: "1rem",
     location: "0.8rem"
   },
   lineHeights: {
-    heading1: "3.5rem",
-    heading2: "2.5rem",
-    heading3: "2rem",
     copy: "1.8rem",
     location: "1.2rem"
   },
