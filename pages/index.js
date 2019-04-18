@@ -36,7 +36,7 @@ const Heading3 = props => (
 const Heading2 = props => (
   <Text
     {...props}
-    fontSize={["2rem", "2.7rem"]}
+    fontSize={["2rem", "3rem"]}
     lineHeight={["2.5rem", "3.2rem"]}
     fontFamily="vinter"
     color="copper"
@@ -46,7 +46,7 @@ const Heading2 = props => (
 const Heading1 = props => (
   <Text
     {...props}
-    fontSize={["3rem", "3rem", "4rem"]}
+    fontSize={["3rem", "3rem", "4.5rem"]}
     lineHeight={["3.5rem", "3.5rem", "4.5rem"]}
     fontFamily="serif"
     color="copper"
@@ -54,7 +54,13 @@ const Heading1 = props => (
 );
 
 const LocationText = props => (
-  <Text {...props} fontSize="location" lineHeight="location" color="white" />
+  <Text
+    {...props}
+    fontSize="location"
+    fontWeight="bold"
+    lineHeight="location"
+    color="white"
+  />
 );
 
 const LanguageButton = props => {
@@ -250,7 +256,7 @@ const Home = () => {
                 float: "right",
                 width: "15rem",
                 height: "3rem",
-                transform: "translate(-3rem, 17rem) rotate(90deg)",
+                transform: "translate(-3rem, 18rem) rotate(90deg)",
                 transformOrigin: "100% 100%"
               }}
             >
@@ -262,7 +268,7 @@ const Home = () => {
           <Box>
             <Slide bottom>
               <Text
-                mt={["3rem", "7rem"]}
+                mt={["3rem", "7rem", "10rem", "13rem"]}
                 fontSize={["3rem", "4.7rem", "5.5rem", "8.5rem"]}
                 fontFamily="vinter"
                 textAlign="center"
@@ -316,12 +322,13 @@ const Home = () => {
         </HeroWrapper>
 
         <Slide bottom>
-          <Box mt="5rem" mb="5rem" width={["90%", "35rem"]} ml="auto" mr="auto">
-            <Heading2 textAlign="center" mb="2.5rem">
+          <Box mt="5rem" mb="5rem" ml="auto" mr="auto" width={["90%", "46rem"]}>
+            <Heading2 textAlign="center" mb="2.5rem" mr="4rem" ml="4rem">
               {t("bestAddress")}
             </Heading2>
-
-            <Text textAlign="center">{t("closeToAction")}</Text>
+            <Text textAlign="center" margin="auto">
+              {t("closeToAction")}
+            </Text>
           </Box>
         </Slide>
 
@@ -330,14 +337,12 @@ const Home = () => {
         </Slide>
 
         <Slide bottom>
-          <Box mt="5rem" mb="5rem" width={["80%", "35rem"]} ml="auto" mr="auto">
+          <Box mt="5rem" mb="5rem" width={["90%", "35rem"]} ml="auto" mr="auto">
             <Heading2 textAlign="center" mb="1rem">
               {t("theSun")}
             </Heading2>
 
-            <PreserveSpan>
-              <Text textAlign="center">{t("centreStage")}</Text>
-            </PreserveSpan>
+            <Text textAlign="center">{t("centreStage")}</Text>
           </Box>
         </Slide>
 
@@ -372,15 +377,28 @@ const Home = () => {
             <Flex flexDirection={["column", "row"]} mt="3rem" mb={[0, "3rem"]}>
               <Box
                 flex="1"
-                ml={["auto", "3rem"]}
-                mr={["auto", "3rem"]}
+                padding={["2rem", "inherit", "inherit"]}
+                ml={["auto", "4rem"]}
+                mr={["auto", "4rem"]}
                 mb={["2rem", 0]}
-                mt={[0, 0, "3rem"]}
-                width={["80%", "auto"]}
+                mt={[0, 0, "4rem", "6rem"]}
               >
-                <Heading1 mb="1rem">{t("daycare")}</Heading1>
+                <Heading1
+                  mb="1rem"
+                  style={{
+                    maxWidth: "30rem"
+                  }}
+                >
+                  {t("daycare")}
+                </Heading1>
 
-                <Text>{t("daycareBody")}</Text>
+                <Text
+                  style={{
+                    maxWidth: "28rem"
+                  }}
+                >
+                  {t("daycareBody")}
+                </Text>
               </Box>
 
               <Box width={[1 / 1, 1 / 2]}>
@@ -407,13 +425,19 @@ const Home = () => {
             <Flex flexDirection={["column", "row"]} mt="3rem" mb={[0, "3rem"]}>
               <Box
                 flex="1"
-                ml={["auto", "3rem"]}
-                mr={["auto", "3rem"]}
+                padding={["2rem", "inherit", "inherit"]}
+                ml={["auto", "2rem", "4rem"]}
+                mr={["auto", "2rem", "4rem"]}
                 mb={["2rem", 0]}
-                mt={[0, 0, "3rem"]}
-                width={["80%", "auto"]}
+                mt={[0, "4rem", "4rem", "12rem"]}
               >
-                <Heading1>{t("bestLocation")}</Heading1>
+                <Heading1
+                  style={{
+                    maxWidth: "30rem"
+                  }}
+                >
+                  {t("bestLocation")}
+                </Heading1>
               </Box>
 
               <Box width={[1 / 1, 1 / 2, 1 / 2]}>
@@ -425,11 +449,24 @@ const Home = () => {
 
         <Box bg="lightgray" p="3rem">
           <Text textAlign={["inherit", "center"]}>
-            <Heading2 color="copper" mb="1rem">
+            <Text
+              color="copper"
+              mb="1rem"
+              fontSize={["2rem", "3.5rem"]}
+              lineHeight={["2.5rem", "3.2rem"]}
+              fontFamily="serif"
+              color="copper"
+            >
               {t("limited")}
-            </Heading2>
+            </Text>
 
-            <Text color="copper">{t("information")}</Text>
+            <Text
+              color="copper"
+              width={["auto", "32rem", "32rem"]}
+              margin="auto"
+            >
+              {t("information")}
+            </Text>
           </Text>
 
           <ContactForm />
@@ -462,7 +499,7 @@ const Home = () => {
                     lineHeight="location"
                     textAlign={["center", "left"]}
                     style={{ whiteSpace: "nowrap" }}
-                    color={["copper", "inherit"]}
+                    color="copper"
                   >
                     {t("experienceCenter")}
                   </Text>
@@ -470,6 +507,7 @@ const Home = () => {
                     fontSize="location"
                     lineHeight="location"
                     textAlign={["center", "left"]}
+                    color="copper"
                     style={{ whiteSpace: "nowrap" }}
                   >
                     {t("experienceAddress")}
@@ -482,17 +520,26 @@ const Home = () => {
                     textAlign={["center", "left"]}
                   >
                     <DisplayContainer display={["none", "block", "block"]}>
-                      contact
-                      <br />
-                      <span style={{ whiteSpace: "nowrap" }}>
+                      <Text
+                        fontSize="location"
+                        lineHeight="location"
+                        style={{ whiteSpace: "nowrap" }}
+                        color="copper"
+                      >
+                        contact
+                        <br />
                         {t("experiencePhone")}
-                      </span>
+                      </Text>
                     </DisplayContainer>
 
                     <DisplayContainer display={["block", "none", "none"]}>
-                      <span style={{ whiteSpace: "nowrap" }}>
+                      <Text
+                        style={{ whiteSpace: "nowrap" }}
+                        color={["copper", "inherit"]}
+                        fontSize="location"
+                      >
                         {t("experiencePhone")}
-                      </span>
+                      </Text>
                     </DisplayContainer>
                   </Text>
                 </Box>
