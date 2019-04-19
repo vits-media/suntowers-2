@@ -1,4 +1,3 @@
-import i18n from "i18next";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Slide from "react-reveal/Slide";
@@ -12,6 +11,7 @@ import FixedHeader from "../components/fixedHeader";
 import Head from "../components/head";
 import RegisterButton from "../components/registerButton";
 import "../language/i18n";
+import LanguageSelect from "../components/languageSelect";
 import GlobalStyle from "../theme/globalStyle";
 import ThemeContainer from "./themeContainer";
 
@@ -62,43 +62,6 @@ const LocationText = props => (
     color="white"
   />
 );
-
-const LanguageButton = props => {
-  const activeColor = props.lang === i18n.language ? "white" : "copper";
-  return (
-    <Button
-      as="span"
-      {...props}
-      fontSize="location"
-      lineHeight="location"
-      color={["copper", activeColor]}
-      mr={["0.5rem", "1rem"]}
-      style={{
-        background: "transparent",
-        cursor: "pointer",
-        padding: 0,
-        lineHeight: "1.8rem"
-      }}
-    />
-  );
-};
-
-const LanguageSelect = props => {
-  const changeLanguage = lng => {
-    i18n.changeLanguage(lng);
-  };
-
-  return (
-    <>
-      <LanguageButton {...props} lang="en" onClick={() => changeLanguage("en")}>
-        EN
-      </LanguageButton>
-      <LanguageButton {...props} lang="zh" onClick={() => changeLanguage("zh")}>
-        中文
-      </LanguageButton>
-    </>
-  );
-};
 
 const Suntowers1Link = props => (
   <Text
