@@ -11,9 +11,13 @@ import FixedHeader from "../components/fixedHeader";
 import Head from "../components/head";
 import RegisterButton from "../components/registerButton";
 import "../language/i18n";
+import { Heading1, Heading2, Heading3 } from "../components/headings";
 import LanguageSelect from "../components/languageSelect";
 import SunLogo from "../components/sunLogo";
+import SunLogotype from "../components/sunLogotype";
 import LocationInfo from "../modules/locationInfo";
+import BestAddress from "../modules/bestAddress";
+import TheSun from "../modules/theSun";
 import GlobalStyle from "../theme/globalStyle";
 import ThemeContainer from "./themeContainer";
 
@@ -24,36 +28,6 @@ Text.defaultProps = {
   lineHeight: "copy",
   color: "gray"
 };
-
-const Heading3 = props => (
-  <Text
-    {...props}
-    fontSize={["1.6rem", "2rem"]}
-    fontFamily="serif"
-    lineHeight="heading3"
-    color="copper"
-  />
-);
-
-const Heading2 = props => (
-  <Text
-    {...props}
-    fontSize={["2rem", "3rem"]}
-    lineHeight={["2.5rem", "3.2rem"]}
-    fontFamily="vinter"
-    color="copper"
-  />
-);
-
-const Heading1 = props => (
-  <Text
-    {...props}
-    fontSize={["3rem", "3rem", "4.5rem"]}
-    lineHeight={["3.5rem", "3.5rem", "4.5rem"]}
-    fontFamily="serif"
-    color="copper"
-  />
-);
 
 const Suntowers1Link = props => (
   <Text
@@ -195,23 +169,7 @@ const Home = () => {
 
           <Box>
             <Slide bottom>
-              <Text
-                mt={["3rem", "7rem", "10rem", "13rem"]}
-                fontSize={["3rem", "4.7rem", "5.5rem", "8.5rem"]}
-                fontFamily="vinter"
-                textAlign="center"
-                color="white"
-              >
-                SUN TOWERS&nbsp;
-                <Text
-                  as="span"
-                  fontFamily="vinter"
-                  fontSize={["4.5rem", "6.7rem", "7.8rem", "12rem"]}
-                  color="white"
-                >
-                  2
-                </Text>
-              </Text>
+              <SunLogotype />
             </Slide>
 
             <Slide bottom>
@@ -251,12 +209,7 @@ const Home = () => {
 
         <Slide bottom>
           <Box mt="5rem" mb="5rem" ml="auto" mr="auto" width={["90%", "46rem"]}>
-            <Heading2 textAlign="center" mb="2.5rem" mr="4rem" ml="4rem">
-              {t("bestAddress")}
-            </Heading2>
-            <Text textAlign="center" margin="auto">
-              {t("closeToAction")}
-            </Text>
+            <BestAddress />
           </Box>
         </Slide>
 
@@ -266,11 +219,7 @@ const Home = () => {
 
         <Slide bottom>
           <Box mt="5rem" mb="5rem" width={["90%", "35rem"]} ml="auto" mr="auto">
-            <Heading2 textAlign="center" mb="1rem">
-              {t("theSun")}
-            </Heading2>
-
-            <Text textAlign="center">{t("centreStage")}</Text>
+            <TheSun />
           </Box>
         </Slide>
 
