@@ -15,7 +15,7 @@ const LocationText = props => (
 );
 
 const locationInfo = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <Flex>
       <LocationText ml="4rem" mr="2rem">
