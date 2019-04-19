@@ -12,6 +12,7 @@ import Head from "../components/head";
 import RegisterButton from "../components/registerButton";
 import "../language/i18n";
 import LanguageSelect from "../components/languageSelect";
+import SunLogo from "../components/sunLogo";
 import GlobalStyle from "../theme/globalStyle";
 import ThemeContainer from "./themeContainer";
 
@@ -166,12 +167,7 @@ const Home = () => {
 
         <HeroWrapper>
           <Flex p={["1rem", "2rem"]} alignItems="center">
-            <Box width={["7.5rem", "10rem"]}>
-              <ReactSVG
-                svgStyle={{ fill: "#8B634A" }}
-                src="static/logo-full.svg"
-              />
-            </Box>
+            <SunLogo />
 
             <Box flex="1">
               <DisplayContainer display={["none", "none", "block"]}>
