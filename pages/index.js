@@ -17,14 +17,14 @@ import Head from "../components/head";
 import RegisterButton from "../components/registerButton";
 import "../language/i18n";
 import { Heading1, Heading2, Heading3 } from "../components/headings";
+
 import LanguageSelect from "../components/languageSelect";
-import SunLogo from "../components/sunLogo";
-import SunLogotype from "../components/sunLogotype";
-import LocationInfo from "../modules/locationInfo";
+import Hero from "../modules/hero";
 import BestAddress from "../modules/bestAddress";
 import TheSun from "../modules/theSun";
 import GlobalStyle from "../theme/globalStyle";
 import ThemeContainer from "./themeContainer";
+import Section from "../components/section";
 
 Text.defaultProps = {
   fontSize: "copy",
@@ -33,27 +33,6 @@ Text.defaultProps = {
   lineHeight: "copy",
   color: "gray"
 };
-
-const Suntowers1Link = props => (
-  <Text
-    {...props}
-    as="a"
-    href="http://www.suntowersmetrotown.com/suntower-1/"
-    fontSize="location"
-    fontWeight="bold"
-    color="copper"
-    target="_blank"
-    cursor="pointer"
-    style={{ textDecoration: "none" }}
-  >
-    SUN TOWERS 1
-  </Text>
-);
-
-const Container = styled.section`
-  width: 95%;
-  margin: auto;
-`;
 
 const OverlayImageContainer = styled.section`
   display: flex;
@@ -96,27 +75,6 @@ const ClubContainer = styled(Box)`
   background: rgba(255, 255, 255, 0.8);
 `;
 
-const HeroWrapper = styled.section`
-  background: linear-gradient(
-    180deg,
-    #decdaa,
-    #decdaa 75%,
-    #fff 75%,
-    #fff 100%
-  );
-
-  @media (max-width: 700px) {
-    background: linear-gradient(
-      180deg,
-      #decdaa,
-      #decdaa 90%,
-      #fff 90%,
-      #fff 100%
-    );
-  }
-  color: white;
-`;
-
 const Home = () => {
   const { t, i18n } = useTranslation();
 
@@ -128,89 +86,7 @@ const Home = () => {
 
         <Analytics />
 
-        <HeroWrapper>
-          <Flex p={["1rem", "2rem"]} alignItems="center">
-            <SunLogo />
-
-            <Box flex="1">
-              <DesktopOnly>
-                <LocationInfo />
-              </DesktopOnly>
-            </Box>
-
-            <MobileOnly>
-              <Box mr="2rem">
-                <Suntowers1Link />
-              </Box>
-            </MobileOnly>
-
-            <Box>
-              <MobileOnly>
-                <LanguageSelect color="white" />
-              </MobileOnly>
-              <TabletOnly>
-                <RegisterButton />
-              </TabletOnly>
-            </Box>
-          </Flex>
-
-          <TabletDesktopOnly>
-            <Flex
-              flexDirection="row"
-              alignItems="flex-end"
-              style={{
-                position: "relative",
-                float: "right",
-                width: "15rem",
-                height: "3rem",
-                transform: "translate(-3rem, 18rem) rotate(90deg)",
-                transformOrigin: "100% 100%"
-              }}
-            >
-              <LanguageSelect color="white" />
-              <Suntowers1Link />
-            </Flex>
-          </TabletDesktopOnly>
-
-          <Box>
-            <Slide bottom>
-              <SunLogotype />
-            </Slide>
-
-            <Slide bottom>
-              <Text
-                mt={["3rem", "3rem", "5rem"]}
-                mb={["3rem", "5rem"]}
-                fontSize={["1.2rem", "1.6rem", "2rem", "2.2rem"]}
-                lineHeight={["2rem", "2.5rem", "2.8rem", "3.8rem"]}
-                fontWeight="medium"
-                fontFamily="sans"
-                textAlign="center"
-                color="white"
-                style={{ textTransform: "uppercase" }}
-              >
-                {t("frontRow")}
-              </Text>
-            </Slide>
-
-            <MobileOnly>
-              <Box width="13rem" margin="auto" mb="4rem">
-                <RegisterButton />
-              </Box>
-            </MobileOnly>
-          </Box>
-
-          <Container>
-            <Slide bottom>
-              <Image
-                width={["100%"]}
-                height={["20rem", "30rem", "40rem"]}
-                src="static/tower-hero.png"
-                style={{ objectFit: "cover" }}
-              />
-            </Slide>
-          </Container>
-        </HeroWrapper>
+        <Hero />
 
         <Slide bottom>
           <Box mt="5rem" mb="5rem" ml="auto" mr="auto" width={["90%", "46rem"]}>
@@ -303,7 +179,7 @@ const Home = () => {
         </Slide>
 
         <Slide bottom>
-          <Container>
+          <Section>
             <Flex flexDirection={["column", "row"]} mt="3rem" mb={[0, "3rem"]}>
               <Box
                 flex="1"
@@ -326,7 +202,7 @@ const Home = () => {
                 <Image src="static/location.png" />
               </Box>
             </Flex>
-          </Container>
+          </Section>
         </Slide>
 
         <Box bg="lightgray" p="3rem">
