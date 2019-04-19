@@ -472,7 +472,11 @@ const Home = () => {
           <ContactForm onSubmit="/thankyou.php" />
 
           <Flex flexDirection={["column-reverse", "row"]} mt={["2rem", "5rem"]}>
-            <Box mr={["0", "1rem"]} mt={["2rem", "0"]} width={[1 / 1, "8rem"]}>
+            <Box
+              mr={["0", "1rem"]}
+              mt={["2rem", "0"]}
+              width={[1 / 1, "8rem", "12rem"]}
+            >
               <Text textAlign={["center", "left"]}>
                 <Image width="5rem" src="static/belford.png" mr="1rem" />
                 <Image width="2rem" src="static/key.png" />
@@ -484,9 +488,8 @@ const Home = () => {
                 fontSize="location"
                 lineHeight="location"
                 textAlign={["center", "left"]}
-                ml={["auto", "auto", "3rem"]}
-                mr={["auto", "auto", "inherit"]}
-                style={{ maxWidth: "32rem" }}
+                margin={["auto"]}
+                style={{ maxWidth: "35rem" }}
               >
                 Sales & Marketing by Key Marketing. This is not an offering for
                 sale. An offering for sale can only be made by way of disclosure
@@ -494,7 +497,7 @@ const Home = () => {
               </Text>
             </Box>
 
-            <Box>
+            <Box width={[1 / 1, "12rem"]}>
               <Flex flexDirection={["column", "column", "row"]}>
                 <Box mr="1rem">
                   <Text
@@ -505,51 +508,17 @@ const Home = () => {
                     color="copper"
                   >
                     {t("experienceCenter")}
-                  </Text>
-                  <Text
-                    fontSize="location"
-                    lineHeight="location"
-                    textAlign={["center", "left"]}
-                    color="copper"
-                    style={{ whiteSpace: "nowrap" }}
-                  >
+                    <br />
                     {t("experienceAddress")}
-                  </Text>
-                </Box>
-                <Box>
-                  <Text
-                    fontSize="location"
-                    lineHeight="location"
-                    textAlign={["center", "left"]}
-                  >
-                    <DisplayContainer display={["none", "none", "block"]}>
-                      <Text
-                        fontSize="location"
-                        lineHeight="location"
-                        style={{ whiteSpace: "nowrap" }}
-                        color="copper"
-                      >
-                        contact
-                        <br />
-                        {t("experiencePhone")}
-                      </Text>
-                    </DisplayContainer>
-
-                    <DisplayContainer display={["block", "block", "none"]}>
-                      <Text
-                        style={{ whiteSpace: "nowrap" }}
-                        color={["copper", "copper", "inherit"]}
-                        fontSize="location"
-                      >
-                        {t("experiencePhone")}
-                      </Text>
-                    </DisplayContainer>
+                    <br />
+                    {t("experiencePhone")}
                   </Text>
                 </Box>
               </Flex>
             </Box>
           </Flex>
         </Box>
+
         <DisplayContainer display={["block", "none", "none"]}>
           <FixedHeader>
             <Flex alignItems="center">
