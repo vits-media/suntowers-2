@@ -1,5 +1,4 @@
 import { Flex, Text, Box, Image } from "rebass";
-import { Heading2 } from "../components/headings";
 import { useTranslation } from "react-i18next";
 import RegisterButton from "../components/registerButton";
 import styled from "styled-components";
@@ -58,7 +57,7 @@ const Hero = () => {
   return (
     <HeroWrapper>
       <Flex p={["1rem", "2rem"]} alignItems="center">
-        <SunLogo />
+        <SunLogo width={["7.5rem", "10rem"]} />
 
         <Box flex="1">
           <DesktopOnly>

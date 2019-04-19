@@ -1,10 +1,10 @@
-import { Text } from "rebass";
+import { Box, Text } from "rebass";
 import { useTranslation } from "react-i18next";
 
-const Limited = () => {
+const Limited = props => {
   const { t } = useTranslation();
   return (
-    <>
+    <Box {...props}>
       <Text textAlign={["inherit", "center"]}>
         <Text
           color="copper"
@@ -21,7 +21,7 @@ const Limited = () => {
           {t("information")}
         </Text>
       </Text>
-    </>
+    </Box>
   );
 };
 

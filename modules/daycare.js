@@ -2,10 +2,10 @@ import { Box, Flex, Image, Text } from "rebass";
 import { Heading1 } from "../components/headings";
 import { useTranslation } from "react-i18next";
 
-const Daycare = () => {
+const Daycare = props => {
   const { t } = useTranslation();
   return (
-    <Flex flexDirection={["column", "row"]}>
+    <Flex {...props} flexDirection={["column", "row"]}>
       <Box
         flex="1"
         padding={["2rem", "inherit", "inherit"]}

@@ -80,137 +80,145 @@ const ContactForm = props => {
     });
   };
   return (
-    <Formik
-      validationSchema={SignupSchema}
-      onSubmit={(values, actions) => {
-        // submit
-        console.log("formdata:", values);
+    <Box {...props}>
+      <Formik
+        validationSchema={SignupSchema}
+        onSubmit={(values, actions) => {
+          // submit
+          console.log("formdata:", values);
 
-        fetch("form.php", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(values)
-        })
-          .then(formComplete)
-          .catch(error => console.error("Error:", error));
-      }}
-      render={({ errors, touched, handleBlur, handleChange, handleSubmit }) => (
-        <Flex
-          onSubmit={handleSubmit}
-          as="form"
-          id="ContactForm"
-          flexDirection="column"
-        >
-          <Flex flexDirection={["column", "row"]}>
-            <TextInput
-              width={[1 / 1, 1 / 2]}
-              type="text"
-              name="FirstName"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              hasError={errors.FirstName && touched.FirstName}
-              placeholder={t("firstName")}
-            />
-
-            <TextInput
-              width={[1 / 1, 1 / 2]}
-              type="text"
-              name="LastName"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder={t("lastName")}
-              hasError={errors.LastName && touched.LastName}
-            />
-          </Flex>
-          <Flex flexDirection={["column", "row"]}>
-            <TextInput
-              width={[1 / 1, 1 / 2]}
-              type="email"
-              name="Email"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder={t("email")}
-              hasError={errors.Email && touched.Email}
-              type="email"
-            />
-            <TextInput
-              width={[1 / 1, 1 / 2]}
-              type="text"
-              name="Phone"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder={t("phone")}
-              hasError={errors.Phone && touched.Phone}
-            />
-          </Flex>
-          <Box>
-            <Select
-              name="HowDidYou"
-              width={[1 / 1]}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            >
-              <option value={t("howHear")} defaultValue>
-                {t("howHear")}
-              </option>
-              <option value="Online Web Search">{t("online")}</option>
-              <option value="Radio">{t("radio")}</option>
-              <option value="YVR Airport">{t("yvr")}</option>
-              <option value="Chinese Newspaper/Print">
-                {t("chinesePaper")}
-              </option>
-              <option value="Other">{t("other")}</option>
-              <option value="Publication">{t("publication")}</option>
-              <option value="WeChat">{t("wechat")}</option>
-              <option value="Word of mouth">{t("wordofmouth")}</option>
-            </Select>
-          </Box>
-          <Box>
-            <TextInput
-              width={[1 / 1]}
-              type="text"
-              name="HowHeardOther"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder={t("ifOther")}
-            />
-          </Box>
-
-          <Box>
-            <Text fontSize="location">
-              {t("realtor")}&nbsp;
-              <input
-                type="radio"
+          fetch("form.php", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(values)
+          })
+            .then(formComplete)
+            .catch(error => console.error("Error:", error));
+        }}
+        render={({
+          errors,
+          touched,
+          handleBlur,
+          handleChange,
+          handleSubmit
+        }) => (
+          <Flex
+            onSubmit={handleSubmit}
+            as="form"
+            id="ContactForm"
+            flexDirection="column"
+          >
+            <Flex flexDirection={["column", "row"]}>
+              <TextInput
+                width={[1 / 1, 1 / 2]}
+                type="text"
+                name="FirstName"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                name="isRealtor"
-                value="Yes"
-              />{" "}
-              {t("yes")}
-              &nbsp;
-              <input
-                type="radio"
+                hasError={errors.FirstName && touched.FirstName}
+                placeholder={t("firstName")}
+              />
+
+              <TextInput
+                width={[1 / 1, 1 / 2]}
+                type="text"
+                name="LastName"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                name="isRealtor"
-                value="No"
-                defaultChecked
-              />{" "}
-              {t("no")}
-            </Text>
-          </Box>
+                placeholder={t("lastName")}
+                hasError={errors.LastName && touched.LastName}
+              />
+            </Flex>
+            <Flex flexDirection={["column", "row"]}>
+              <TextInput
+                width={[1 / 1, 1 / 2]}
+                type="email"
+                name="Email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder={t("email")}
+                hasError={errors.Email && touched.Email}
+                type="email"
+              />
+              <TextInput
+                width={[1 / 1, 1 / 2]}
+                type="text"
+                name="Phone"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder={t("phone")}
+                hasError={errors.Phone && touched.Phone}
+              />
+            </Flex>
+            <Box>
+              <Select
+                name="HowDidYou"
+                width={[1 / 1]}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              >
+                <option value={t("howHear")} defaultValue>
+                  {t("howHear")}
+                </option>
+                <option value="Online Web Search">{t("online")}</option>
+                <option value="Radio">{t("radio")}</option>
+                <option value="YVR Airport">{t("yvr")}</option>
+                <option value="Chinese Newspaper/Print">
+                  {t("chinesePaper")}
+                </option>
+                <option value="Other">{t("other")}</option>
+                <option value="Publication">{t("publication")}</option>
+                <option value="WeChat">{t("wechat")}</option>
+                <option value="Word of mouth">{t("wordofmouth")}</option>
+              </Select>
+            </Box>
+            <Box>
+              <TextInput
+                width={[1 / 1]}
+                type="text"
+                name="HowHeardOther"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder={t("ifOther")}
+              />
+            </Box>
 
-          <Box mt="2rem">
-            <Register as="button" type="submit">
-              {t("register")}
-            </Register>
-          </Box>
-        </Flex>
-      )}
-    />
+            <Box>
+              <Text fontSize="location">
+                {t("realtor")}&nbsp;
+                <input
+                  type="radio"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  name="isRealtor"
+                  value="Yes"
+                />{" "}
+                {t("yes")}
+                &nbsp;
+                <input
+                  type="radio"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  name="isRealtor"
+                  value="No"
+                  defaultChecked
+                />{" "}
+                {t("no")}
+              </Text>
+            </Box>
+
+            <Box mt="2rem">
+              <Register as="button" type="submit">
+                {t("register")}
+              </Register>
+            </Box>
+          </Flex>
+        )}
+      />
+    </Box>
   );
 };
 

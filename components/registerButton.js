@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Box } from "rebass";
 import "../language/i18n";
 import { useTranslation } from "react-i18next";
 
@@ -27,12 +28,14 @@ export const Register = styled.span`
   }
 `;
 
-const RegisterButton = () => {
-  const { t, i18n } = useTranslation();
+const RegisterButton = props => {
+  const { t } = useTranslation();
   return (
-    <Register>
-      <a href="#ContactForm">{t("register")}</a>
-    </Register>
+    <Box {...props}>
+      <Register>
+        <a href="#ContactForm">{t("register")}</a>
+      </Register>
+    </Box>
   );
 };
 

@@ -1,10 +1,10 @@
 import { Box, Flex, Image, Text } from "rebass";
 import { useTranslation } from "react-i18next";
 
-const FormFoot = () => {
+const FormFoot = props => {
   const { t } = useTranslation();
   return (
-    <Flex flexDirection={["column-reverse", "row"]}>
+    <Flex {...props} flexDirection={["column-reverse", "row"]}>
       <Box
         mr={["0", "1rem"]}
         mt={["2rem", "0"]}

@@ -1,9 +1,9 @@
 import { Box } from "rebass";
 import ReactSVG from "react-svg";
 
-const SunLogo = () => {
+const SunLogo = props => {
   return (
-    <Box width={["7.5rem", "10rem"]}>
+    <Box {...props}>
       <ReactSVG svgStyle={{ fill: "#8B634A" }} src="static/logo-full.svg" />
     </Box>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Flex, Box, Text, Image } from "rebass";
+import { Box } from "rebass";
 
 const Header = styled(Box)`
   position: fixed;
