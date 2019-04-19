@@ -13,6 +13,7 @@ import RegisterButton from "../components/registerButton";
 import "../language/i18n";
 import LanguageSelect from "../components/languageSelect";
 import SunLogo from "../components/sunLogo";
+import LocationInfo from "../modules/locationInfo";
 import GlobalStyle from "../theme/globalStyle";
 import ThemeContainer from "./themeContainer";
 
@@ -51,16 +52,6 @@ const Heading1 = props => (
     lineHeight={["3.5rem", "3.5rem", "4.5rem"]}
     fontFamily="serif"
     color="copper"
-  />
-);
-
-const LocationText = props => (
-  <Text
-    {...props}
-    fontSize="location"
-    fontWeight="bold"
-    lineHeight="location"
-    color="white"
   />
 );
 
@@ -122,13 +113,6 @@ const LivingText = styled.div`
   }
 `;
 
-const PreserveSpan = styled(Box)`
-  span {
-    display: inline-block;
-    white-space: nowrap;
-  }
-`;
-
 const ClubContainer = styled(Box)`
   background: rgba(255, 255, 255, 0.8);
 `;
@@ -171,22 +155,7 @@ const Home = () => {
 
             <Box flex="1">
               <DisplayContainer display={["none", "none", "block"]}>
-                <Flex>
-                  <LocationText ml="4rem" mr="2rem">
-                    <PreserveSpan>
-                      <span>{t("experienceCenter")}</span>
-                      <br />
-                      <span>{t("experienceAddress")}</span>
-                    </PreserveSpan>
-                  </LocationText>
-                  <LocationText>
-                    <PreserveSpan>
-                      <span>{t("experiencePhone")}</span>
-                      <br />
-                      <span>{t("openHours")}</span>
-                    </PreserveSpan>
-                  </LocationText>
-                </Flex>
+                <LocationInfo />
               </DisplayContainer>
             </Box>
 
