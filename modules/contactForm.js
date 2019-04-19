@@ -103,10 +103,6 @@ const ContactForm = props => {
           as="form"
           id="ContactForm"
           flexDirection="column"
-          width={[1 / 1, "600px"]}
-          ml={["auto"]}
-          mr={["auto"]}
-          mt="2rem"
         >
           <Flex flexDirection={["column", "row"]}>
             <TextInput
