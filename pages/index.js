@@ -6,7 +6,12 @@ import { Box, Button, Flex, Image, Text } from "rebass";
 import styled from "styled-components";
 import Analytics from "../components/analytics";
 import ContactForm from "../components/contactForm";
-import DisplayContainer from "../components/displayContainer";
+import {
+  DesktopOnly,
+  MobileOnly,
+  TabletOnly,
+  TabletDesktopOnly
+} from "../components/displayContainer";
 import FixedHeader from "../components/fixedHeader";
 import Head from "../components/head";
 import RegisterButton from "../components/registerButton";
@@ -128,28 +133,28 @@ const Home = () => {
             <SunLogo />
 
             <Box flex="1">
-              <DisplayContainer display={["none", "none", "block"]}>
+              <DesktopOnly>
                 <LocationInfo />
-              </DisplayContainer>
+              </DesktopOnly>
             </Box>
 
-            <DisplayContainer display={["block", "none", "none"]}>
+            <MobileOnly>
               <Box mr="2rem">
                 <Suntowers1Link />
               </Box>
-            </DisplayContainer>
+            </MobileOnly>
 
             <Box>
-              <DisplayContainer display={["block", "none"]}>
+              <MobileOnly>
                 <LanguageSelect color="white" />
-              </DisplayContainer>
-              <DisplayContainer display={["none", "block"]}>
+              </MobileOnly>
+              <TabletOnly>
                 <RegisterButton />
-              </DisplayContainer>
+              </TabletOnly>
             </Box>
           </Flex>
 
-          <DisplayContainer display={["none", "block", "block"]}>
+          <TabletDesktopOnly>
             <Flex
               flexDirection="row"
               alignItems="flex-end"
@@ -165,7 +170,7 @@ const Home = () => {
               <LanguageSelect color="white" />
               <Suntowers1Link />
             </Flex>
-          </DisplayContainer>
+          </TabletDesktopOnly>
 
           <Box>
             <Slide bottom>
@@ -188,11 +193,11 @@ const Home = () => {
               </Text>
             </Slide>
 
-            <DisplayContainer display={["block", "none"]} mb="4rem">
-              <Box width="13rem" margin="auto">
+            <MobileOnly>
+              <Box width="13rem" margin="auto" mb="4rem">
                 <RegisterButton />
               </Box>
-            </DisplayContainer>
+            </MobileOnly>
           </Box>
 
           <Container>
@@ -396,7 +401,7 @@ const Home = () => {
           </Flex>
         </Box>
 
-        <DisplayContainer display={["block", "none", "none"]}>
+        <MobileOnly>
           <FixedHeader>
             <Flex alignItems="center">
               <Box width="6rem">
@@ -420,7 +425,7 @@ const Home = () => {
               </Box>
             </Flex>
           </FixedHeader>
-        </DisplayContainer>
+        </MobileOnly>
       </>
     </ThemeContainer>
   );
