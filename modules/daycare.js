@@ -33,7 +33,7 @@ const Daycare = props => {
       </Box>
 
       <Box width={[1 / 1, 1 / 2]}>
-        <Image src="static/daycare.png" />
+        <Image src="static/daycare.jpg" />
       </Box>
     </Flex>
   );
