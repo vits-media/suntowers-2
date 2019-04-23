@@ -12,15 +12,21 @@ const languages = [
   }
 ];
 
-const LanguageButton = ({ lang, ...props }) => {
-  const activeColor = lang === i18n.language ? "white" : "copper";
+const LanguageButton = (props) => {
+  const {
+    lang,
+    gap = '1rem',
+    activeColor = 'white',
+    color = 'copper', ...restProps
+  } = props;
+
   return (
     <Text
-      {...props}
+      {...restProps}
       as="span"
       bg="transparent"
-      color={["copper", activeColor]}
-      mr={["0.5rem", "1rem"]}
+      color={lang === i18n.language ? activeColor : color}
+      mr={gap}
       p="0"
       fontSize="location"
       lineHeight="1.8rem"
