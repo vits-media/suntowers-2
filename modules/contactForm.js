@@ -74,11 +74,22 @@ export const Select = styled.select`
 
 const ContactForm = props => {
   const { t, i18n } = useTranslation();
-  const formComplete = () => {
+
+  const formComplete = response => {
+    console.log("Form complete: ", response);
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+    return response;
+  };
+
+  const redirect = response => {
+    console.log("Redirecting: ", props.redirect);
     Router.push({
-      pathname: props.onSubmit
+      pathname: props.redirect
     });
   };
+
   return (
     <Box {...props}>
       <Formik
@@ -87,16 +98,22 @@ const ContactForm = props => {
           // submit
           console.log("formdata:", values);
 
-          fetch("form.php", {
+          // encode form data
+          const formData = new URLSearchParams();
+          for (let key in values) {
+            formData.append(key, values[key]);
+          }
+
+          fetch(props.post, {
             method: "POST",
             headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json"
+              "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
             },
-            body: JSON.stringify(values)
+            body: formData
           })
             .then(formComplete)
-            .catch(error => console.error("Error:", error));
+            .then(redirect)
+            .catch(error => console.error(error));
         }}
         render={({
           errors,

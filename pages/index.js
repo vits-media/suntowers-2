@@ -30,7 +30,7 @@ const Home = () => {
           <BestAddress width={["90%", "46rem"]} m="5rem auto 5rem auto" />
         </Slide>
         <Slide bottom>
-          <Image width={1 / 1} src="static/tower-sunset.png" />
+          <Image width={1 / 1} src="static/tower-sunset.jpg" />
         </Slide>
         <Slide bottom>
           <TheSun width={["90%", "35rem"]} m="5rem auto 5rem auto" />
@@ -53,6 +53,8 @@ const Home = () => {
         <Box bg="lightgray" p="3rem">
           <Limited />
           <ContactForm
+            post="form.php"
+            redirect="/thankyou.php"
             width={[1 / 1, "600px"]}
             margin={["2rem auto 2rem auto", "2rem auto 5rem auto"]}
           />
