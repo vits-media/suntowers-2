@@ -10,7 +10,7 @@ const MobileHeader = () => {
       <Flex alignItems="center">
         <SunLogo width="6rem" m="0 0.3rem" />
         <Text textAlign="right" pr="1rem" flex="1">
-          <LanguageSelect color="darkgray" />
+          <LanguageSelect gap="0.5rem" color="copper" activeColor="copper" />
         </Text>
         <RegisterButton width="11rem" />
       </Flex>

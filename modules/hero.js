@@ -73,7 +73,7 @@ const Hero = () => {
 
         <Box>
           <MobileOnly>
-            <LanguageSelect color="white" />
+            <LanguageSelect/>
           </MobileOnly>
           <TabletOnly>
             <RegisterButton />
@@ -94,7 +94,7 @@ const Hero = () => {
             transformOrigin: "100% 100%"
           }}
         >
-          <LanguageSelect color="white" />
+          <LanguageSelect />
           <Suntowers1Link />
         </Flex>
       </TabletDesktopOnly>
