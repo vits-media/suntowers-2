@@ -29,7 +29,7 @@ const Daycare = () => {
         </Text>
       </LivingText>
 
-      <Image width={1 / 1} src="static/livingroom.jpg" />
+      <Image width={1 / 1} src="/static/livingroom.jpg" />
     </LivingContainer>
   );
 };

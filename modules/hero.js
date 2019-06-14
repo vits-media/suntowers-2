@@ -132,7 +132,7 @@ const Hero = () => {
           <Image
             width={["100%"]}
             height={["20rem", "30rem", "40rem"]}
-            src="static/tower-hero.jpg"
+            src="/static/tower-hero.jpg"
             style={{ objectFit: "cover" }}
           />
         </Slide>

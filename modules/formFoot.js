@@ -11,8 +11,8 @@ const FormFoot = props => {
         width={[1 / 1, "8rem", "12rem"]}
       >
         <Text textAlign={["center", "left"]}>
-          <Image width="5rem" src="static/belford.png" mr="1rem" />
-          <Image width="2rem" src="static/key.png" />
+          <Image width="5rem" src="/static/belford.png" mr="1rem" />
+          <Image width="2rem" src="/static/key.png" />
         </Text>
       </Box>
 

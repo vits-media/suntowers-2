@@ -17,8 +17,11 @@ import Limited from "../modules/limited";
 import FormFoot from "../modules/formFoot";
 import ContactForm from "../modules/contactForm";
 import MobileHeader from "../modules/mobileHeader";
+import i18n from "i18next";
 
-const Home = () => {
+const Home = ({ query }) => {
+  i18n.changeLanguage(query.lang || "en");
+
   return (
     <ThemeContainer>
       <>
@@ -30,7 +33,7 @@ const Home = () => {
           <BestAddress width={["90%", "46rem"]} m="5rem auto 5rem auto" />
         </Slide>
         <Slide bottom>
-          <Image width={1 / 1} src="static/tower-sunset.jpg" />
+          <Image width={1 / 1} src="/static/tower-sunset.jpg" />
         </Slide>
         <Slide bottom>
           <TheSun width={["90%", "35rem"]} m="5rem auto 5rem auto" />
@@ -66,6 +69,10 @@ const Home = () => {
       </>
     </ThemeContainer>
   );
+};
+
+Home.getInitialProps = async ({ query }) => {
+  return { query };
 };
 
 export default Home;

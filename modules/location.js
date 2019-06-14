@@ -26,7 +26,7 @@ const Location = () => {
         </Box>
 
         <Box width={[1 / 1, 1 / 2, 1 / 2]}>
-          <Image src="static/location.png" />
+          <Image src="/static/location.png" />
         </Box>
       </Flex>
     </Section>

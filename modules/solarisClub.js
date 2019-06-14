@@ -33,7 +33,7 @@ const SolarisClub = () => {
   const { t } = useTranslation();
   return (
     <OverlayImageContainer>
-      <Image width={1 / 1} src="static/pool.jpg" />
+      <Image width={1 / 1} src="/static/pool.jpg" />
 
       <ClubContainer p="2rem" width={["80%", "35rem"]}>
         <Text textAlign="center">
