@@ -117,6 +117,8 @@ const Hero = () => {
             style={{ textTransform: "uppercase" }}
           >
             {t("frontRow")}
+            <br />
+            {t("nowSelling")}
           </Text>
         </Slide>
 

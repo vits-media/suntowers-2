@@ -11,6 +11,7 @@ const resources = {
       register: "Register now",
       bestAddress: "Sun Towers is Metrotown’s best address",
       frontRow: "Get your front row seat to Metrotown",
+      nowSelling: "Now Selling",
       closeToAction:
         "Close to all the action, it is home to an international lifestyle paired with the ultimate convenience of SkyTrain and destination shopping. A place of unmatched amenities and prestigious personal services.",
       theSun: "The Sun has returned to Metrotown",
@@ -55,6 +56,7 @@ const resources = {
       register: "现在注册",
       bestAddress: "稀缺地段 最佳位置",
       frontRow: "入驻铁道镇中枢地标",
+      nowSelling: "正在热销",
       closeToAction:
         "太阳塔独享铁道中最稀缺的地段。毗邻各个活动中心，接轨国际化的生活方式，与天车站和万千宠爱的铁道镇购物中心咫尺之遥。让您尽享无与伦比的设施和尊享的个人礼宾服务，带来居住生活的终极便利。",
       theSun: "太阳之耀，生活之辉 一 至臻户型璀璨重返铁道镇",
