@@ -8,7 +8,7 @@ const FormFoot = props => {
       <Box
         mr={["0", "1rem"]}
         mt={["2rem", "0"]}
-        width={[1 / 1, "8rem", "12rem"]}
+        width={[1 / 1, "5rem", "7rem", "8rem"]}
       >
         <Text textAlign={["center", "left"]}>
           <Image width="5rem" src="/static/belford.png" mr="1rem" />
@@ -21,11 +21,10 @@ const FormFoot = props => {
           lineHeight="location"
           textAlign={["center", "left"]}
           margin={["auto"]}
-          style={{ maxWidth: "35rem" }}
+          style={{ maxWidth: "34rem" }}
         >
-          Sales & Marketing by Key Marketing. This is not an offering for sale.
-          An offering for sale can only be made by way of disclosure statement
-          E.&O.E.
+          This is not an offering for sale. An offering for sale can only be
+          made by way of disclosure statement E.&O.E.
         </Text>
       </Box>
 
