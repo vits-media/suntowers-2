@@ -128,6 +128,11 @@ const ContactForm = props => {
             id="ContactForm"
             flexDirection="column"
           >
+            <input
+              type="hidden"
+              name="ThankYouEmailTemplateId"
+              value="482911"
+            />
             <Flex flexDirection={["column", "row"]}>
               <TextInput
                 width={[1 / 1, 1 / 2]}
