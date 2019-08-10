@@ -1,21 +1,10 @@
-import { Formik } from "formik";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Flex, Text } from "rebass";
 import styled from "styled-components";
 import { fontSize, width } from "styled-system";
-import * as Yup from "yup";
 import { Register } from "../components/registerButton";
 import Router from "next/router";
-
-const SignupSchema = Yup.object().shape({
-  FirstName: Yup.string().required("Required"),
-  LastName: Yup.string().required("Required"),
-  Phone: Yup.string().required("Required"),
-  Email: Yup.string()
-    .email("Invalid email")
-    .required("Required")
-});
 
 export const TextInput = styled.input`
   ${width}
@@ -74,6 +63,7 @@ export const Select = styled.select`
 
 const ContactForm = props => {
   const { t, i18n } = useTranslation();
+  const [guid, setGuid] = useState(null);
 
   const formComplete = response => {
     console.log("Form complete: ", response);
@@ -90,156 +80,193 @@ const ContactForm = props => {
     });
   };
 
+  useEffect(() => {
+    setGuid(window.LassoCRM.tracker.readCookie("ut"));
+  }, []);
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const data = new FormData(event.target);
+
+    const formData = new URLSearchParams();
+
+    for (var [key, value] of data) {
+      formData.append(key, value);
+    }
+
+    fetch(props.post, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+      },
+      body: formData
+    })
+      .then(formComplete)
+      .then(redirect)
+      .catch(error => console.error(error));
+  };
+
   return (
     <Box {...props}>
-      <Formik
-        validationSchema={SignupSchema}
-        onSubmit={(values, actions) => {
-          // submit
-          console.log("formdata:", values);
-
-          // encode form data
-          const formData = new URLSearchParams();
-          for (let key in values) {
-            formData.append(key, values[key]);
-          }
-
-          fetch(props.post, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-            },
-            body: formData
-          })
-            .then(formComplete)
-            .then(redirect)
-            .catch(error => console.error(error));
-        }}
-        render={({
-          errors,
-          touched,
-          handleBlur,
-          handleChange,
-          handleSubmit
-        }) => (
-          <Flex
-            onSubmit={handleSubmit}
-            as="form"
-            id="ContactForm"
-            flexDirection="column"
-          >
+      <Flex
+        onSubmit={handleSubmit}
+        as="form"
+        id="ContactForm"
+        flexDirection="column"
+      >
+        <input type="hidden" name="domainAccountId" value="LAS-355170-01" />
+        <input type="hidden" name="guid" value={guid} />
+        <Flex flexDirection={["column", "row"]}>
+          <TextInput
+            width={[1 / 1, 1 / 2]}
+            type="text"
+            name="firstName"
+            required
+            placeholder={t("firstName")}
+          />
+          <TextInput
+            width={[1 / 1, 1 / 2]}
+            type="text"
+            name="lastName"
+            required
+            placeholder={t("lastName")}
+          />
+        </Flex>
+        <Flex flexDirection={["column", "row"]}>
+          <TextInput
+            width={[1 / 1, 1 / 2]}
+            type="email"
+            name="email"
+            required
+            placeholder={t("email")}
+            type="email"
+          />
+          <TextInput
+            width={[1 / 1, 1 / 2]}
+            type="text"
+            name="phone"
+            required
+            placeholder={t("phone")}
+          />
+        </Flex>
+        <Box>
+          <Select name="HowHear" width={[1 / 1]}>
+            <option value={t("howHear")} defaultValue>
+              {t("howHear")}
+            </option>
+            <option value="251982">{t("online")}</option>
+            <option value="251987">{t("radio")}</option>
+            <option value="252006">{t("yvr")}</option>
+            <option value="251958">{t("chinesePaper")}</option>
+            <option value="251983">{t("other")}</option>
+            <option value="251986">{t("publication")}</option>
+            <option value="252003">{t("wechat")}</option>
+            <option value="252005">{t("wordofmouth")}</option>
+          </Select>
+        </Box>
+        <Box>
+          <TextInput
+            width={[1 / 1]}
+            type="text"
+            name="HowHearOther"
+            placeholder={t("ifOther")}
+          />
+        </Box>
+        <Box>
+          <Select name="HomeType" width={[1 / 1]}>
+            <option value={t("homeType")} defaultValue>
+              {t("homeType")}
+            </option>
+            <option value="252291">{t("oneBedroom")}</option>
+            <option value="252292">{t("twoBedroom")}</option>
+            <option value="252293">{t("threeBedroom")}</option>
+            <option value="252294">{t("townhomeOrPenthouse")}</option>
+          </Select>
+        </Box>
+        <Box>
+          <Select name="Budget" width={[1 / 1]}>
+            <option value={t("budget")} defaultValue>
+              {t("budget")}
+            </option>
+            <option value="252296">{t("belowFive")}</option>
+            <option value="252297">{t("fiveToSevenFifty")}</option>
+            <option value="252298">{t("sevenFiftyToOneMil")}</option>
+            <option value="252299">{t("aboveOneMil")}</option>
+          </Select>
+        </Box>
+        <Box>
+          <Text fontSize="location">
+            {t("workingWithRealtor")}&nbsp;
             <input
-              type="hidden"
-              name="ThankYouEmailTemplateId"
-              value="482911"
+              type="radio"
+              name="WorkingWithRealtor"
+              // yes
+              value="252301"
+            />{" "}
+            {t("yes")}
+            &nbsp;
+            <input
+              type="radio"
+              name="WorkingWithRealtor"
+              // no
+              value="252302"
+              defaultChecked
+            />{" "}
+            {t("no")}
+          </Text>
+        </Box>
+        <Box>
+          <TextInput
+            width={[1 / 1]}
+            type="text"
+            name="RealtorName"
+            placeholder={t("realtorName")}
+          />
+        </Box>
+        <Box>
+          <TextInput
+            width={[1 / 1]}
+            type="text"
+            name="RealtorPhone"
+            placeholder={t("realtorPhone")}
+          />
+        </Box>
+        <Box>
+          <TextInput
+            width={[1 / 1]}
+            type="text"
+            name="RealtorBrokerage"
+            placeholder={t("realtorBrokerage")}
+          />
+        </Box>
+        <Box>
+          <Text fontSize="location">
+            {t("realtor")}&nbsp;
+            <input
+              type="radio"
+              name="IAmRealtor"
+              // yes
+              value="251952"
             />
-            <Flex flexDirection={["column", "row"]}>
-              <TextInput
-                width={[1 / 1, 1 / 2]}
-                type="text"
-                name="FirstName"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                hasError={errors.FirstName && touched.FirstName}
-                placeholder={t("firstName")}
-              />
+            {t("yes")}
+            &nbsp;
+            <input
+              type="radio"
+              name="IAmRealtor"
+              // no
+              value="251953"
+              defaultChecked
+            />{" "}
+            {t("no")}
+          </Text>
+        </Box>
 
-              <TextInput
-                width={[1 / 1, 1 / 2]}
-                type="text"
-                name="LastName"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                placeholder={t("lastName")}
-                hasError={errors.LastName && touched.LastName}
-              />
-            </Flex>
-            <Flex flexDirection={["column", "row"]}>
-              <TextInput
-                width={[1 / 1, 1 / 2]}
-                type="email"
-                name="Email"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                placeholder={t("email")}
-                hasError={errors.Email && touched.Email}
-                type="email"
-              />
-              <TextInput
-                width={[1 / 1, 1 / 2]}
-                type="text"
-                name="Phone"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                placeholder={t("phone")}
-                hasError={errors.Phone && touched.Phone}
-              />
-            </Flex>
-            <Box>
-              <Select
-                name="HowDidYou"
-                width={[1 / 1]}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              >
-                <option value={t("howHear")} defaultValue>
-                  {t("howHear")}
-                </option>
-                <option value="Online Web Search">{t("online")}</option>
-                <option value="Radio">{t("radio")}</option>
-                <option value="YVR Airport">{t("yvr")}</option>
-                <option value="Chinese Newspaper/Print">
-                  {t("chinesePaper")}
-                </option>
-                <option value="Other">{t("other")}</option>
-                <option value="Publication">{t("publication")}</option>
-                <option value="WeChat">{t("wechat")}</option>
-                <option value="Word of mouth">{t("wordofmouth")}</option>
-              </Select>
-            </Box>
-            <Box>
-              <TextInput
-                width={[1 / 1]}
-                type="text"
-                name="HowHeardOther"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                placeholder={t("ifOther")}
-              />
-            </Box>
-
-            <Box>
-              <Text fontSize="location">
-                {t("realtor")}&nbsp;
-                <input
-                  type="radio"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  name="isRealtor"
-                  value="Yes"
-                />{" "}
-                {t("yes")}
-                &nbsp;
-                <input
-                  type="radio"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  name="isRealtor"
-                  value="No"
-                  defaultChecked
-                />{" "}
-                {t("no")}
-              </Text>
-            </Box>
-
-            <Box mt="2rem">
-              <Register as="button" type="submit">
-                {t("register")}
-              </Register>
-            </Box>
-          </Flex>
-        )}
-      />
+        <Box mt="2rem">
+          <Register as="button" type="submit">
+            {t("register")}
+          </Register>
+        </Box>
+      </Flex>
     </Box>
   );
 };
