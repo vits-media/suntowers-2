@@ -38,6 +38,12 @@ Static exports into `/docs` folder. Served up on gh-pages.
 
 You can find more details about [`now` here](https://zeit.co/now).
 
+### Contact Form handling
+
+Form handling is done using PHP code in `/php` folder.  This also includes _Thank You_ pages that users are presented after submitting contact forms.
+
+[See more details](/php/README.md);
+
 ### Credit
 
 This project was bootstrapped with [Create Next App](https://github.com/segmentio/create-next-app).
