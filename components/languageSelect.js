@@ -12,12 +12,13 @@ const languages = [
   }
 ];
 
-const LanguageButton = (props) => {
+const LanguageButton = props => {
   const {
     lang,
-    gap = '1rem',
-    activeColor = 'white',
-    color = 'copper', ...restProps
+    gap = "1rem",
+    activeColor = "white",
+    color = "copper",
+    ...restProps
   } = props;
 
   return (
