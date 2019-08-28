@@ -12,6 +12,7 @@ import {
 } from "../components/displayContainer";
 import SunLogo from "../components/sunLogo";
 import SunLogotype from "../components/sunLogotype";
+import HkBuyers from "../modules/hkBuyers";
 import LocationInfo from "../modules/locationInfo";
 import Section from "../components/section";
 
@@ -121,6 +122,10 @@ const Hero = () => {
             {t("nowSelling")}
           </Text>
         </Slide>
+
+        <Box mb={["3rem", "5rem"]}>
+          <HkBuyers />
+        </Box>
 
         <MobileOnly>
           <Box width="13rem" margin="auto" mb="4rem">

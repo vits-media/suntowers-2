@@ -57,6 +57,11 @@ export default () => {
         font-size: 16px;
         font-family: "gotham", sans-serif;
       }
+
+      a,
+      a:visited {
+        color: white;
+      }
     `}</style>
   );
 };
