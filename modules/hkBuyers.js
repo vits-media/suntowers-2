@@ -21,19 +21,19 @@ const hkBuyers = () => {
       flexDirection={["column", "column", "column", "row"]}
     >
       <Items>
-        <span>Contact: </span> <span>Sunny Tsoi</span>
+        <span>香港地區請聯系: </span>
+        <span>Sunny Tsoi</span>
       </Items>
       <Items>
-        <span>Phone: </span>
         <span>
-          <a href="tel:+852 3500 0998">+852 3500 0998</a>
+          <a href="tel:+852 3500 0998">+852 3500 0998</a> (香港時間 1am-3pm,
+          9pm-12am)
         </span>
       </Items>
       <Items>
-        <span>WhatsApp: </span> <span>+852 3500 0998</span>
+        <span>WhatsApp: </span> <span>+1 778 995 8113</span>
       </Items>
       <Items>
-        <span>Email: </span>
         <span>
           <a href="mailto:Sunny@SunTowersMetrotown.com">
             Sunny@SunTowersMetrotown.com
