@@ -26,7 +26,7 @@ const hkBuyers = () => {
       </Items>
       <Items>
         <span>
-          <a href="tel:+852 3500 0998">+852 3500 0998</a> (香港時間 1am-3pm,
+          <a href="tel:+852 9773 7741">+852 9773 7741</a> (香港時間 1am-3pm,
           9pm-12am)
         </span>
       </Items>
