@@ -9,7 +9,7 @@
   "dependencies": {
     "formik": "^1.5.2",
     "i18next": "^15.0.9",
-    "next": "^8.0.4",
+    "next": "^13.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-ga": "^2.5.7",
